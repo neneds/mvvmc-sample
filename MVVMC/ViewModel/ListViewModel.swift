@@ -10,9 +10,24 @@ import Foundation
 
 
 protocol ListViewModelType: ViewModelType {
-    
+    func loadVehicles(completion: @escaping ([Vehicle]?) -> ())
 }
 
 class ListViewModel: ListViewModelType {
     
+    func reloadTableView() {
+        
+    }
+    
+    func showHUD() {
+        
+    }
+    
+    func hideHUD() {
+        
+    }
+    
+    func loadVehicles(completion: @escaping ([Vehicle]?) -> ()) {
+        
+    }
 }

@@ -13,5 +13,17 @@ protocol BrandViewModelType: ViewModelType {
 }
 
 class BrandViewModel: BrandViewModelType {
+    func reloadTableView() {
+        
+    }
+    
+    func showHUD() {
+        
+    }
+    
+    func hideHUD() {
+        
+    }
+    
     
 }

@@ -9,7 +9,9 @@
 import Foundation
 
 protocol ViewModelType: class {
-   
+   func reloadTableView()
+   func showHUD()
+   func hideHUD()
 }
 
 

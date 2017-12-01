@@ -15,5 +15,20 @@ class Vehicle : NSObject {
     var maker: String?
     var urlImage: URL?
     var vehicleDescription: String?
+    
+    
+    required init?(map: Map) {
+        super.init(map: map)
+    }
+    
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        
+        id <- map["id"]
+        name <- map["name"]
+        maker <- map["brandName"]
+        urlImage <- map["pictureAddress"]
+        vehicleDescription <- map["vehicleDescription"]
+    }
 }
     
