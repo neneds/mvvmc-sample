@@ -11,6 +11,10 @@
 		495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */; };
 		495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */; };
 		495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */; };
+		495FEF961FD1C8D6002C3C66 /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF941FD1C8D6002C3C66 /* BrandViewController.swift */; };
+		495FEF971FD1C8D6002C3C66 /* BrandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495FEF951FD1C8D6002C3C66 /* BrandViewController.xib */; };
+		495FEF991FD1C9D1002C3C66 /* BrandCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF981FD1C9D1002C3C66 /* BrandCoordinator.swift */; };
+		495FEF9B1FD1CA2F002C3C66 /* BrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */; };
 		49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A6D71FCF2554002E654E /* AppDelegate.swift */; };
 		49E5A6DA1FCF2554002E654E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A6D91FCF2554002E654E /* ViewController.swift */; };
 		49E5A6DD1FCF2554002E654E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E5A6DB1FCF2554002E654E /* Main.storyboard */; };
@@ -52,6 +56,10 @@
 		495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
+		495FEF941FD1C8D6002C3C66 /* BrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewController.swift; sourceTree = "<group>"; };
+		495FEF951FD1C8D6002C3C66 /* BrandViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandViewController.xib; sourceTree = "<group>"; };
+		495FEF981FD1C9D1002C3C66 /* BrandCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCoordinator.swift; sourceTree = "<group>"; };
+		495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewModel.swift; sourceTree = "<group>"; };
 		49E5A6D41FCF2554002E654E /* MVVMC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E5A6D71FCF2554002E654E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E5A6D91FCF2554002E654E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +126,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		495FEF931FD1C8B5002C3C66 /* Brands */ = {
+			isa = PBXGroup;
+			children = (
+				495FEF941FD1C8D6002C3C66 /* BrandViewController.swift */,
+				495FEF951FD1C8D6002C3C66 /* BrandViewController.xib */,
+			);
+			path = Brands;
+			sourceTree = "<group>";
+		};
 		49E5A6CB1FCF2554002E654E = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +199,7 @@
 				49E5A71F1FCF30D9002E654E /* ListCoordinator.swift */,
 				495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */,
 				495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */,
+				495FEF981FD1C9D1002C3C66 /* BrandCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -197,6 +215,7 @@
 		49E5A7071FCF25CA002E654E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				495FEF931FD1C8B5002C3C66 /* Brands */,
 				49E5A7141FCF2A2F002E654E /* Detail */,
 				49E5A70F1FCF2A0E002E654E /* List */,
 			);
@@ -207,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				49E5A71B1FCF2C11002E654E /* ListViewModel.swift */,
+				495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -354,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495FEF971FD1C8D6002C3C66 /* BrandViewController.xib in Resources */,
 				49E5A6E21FCF2554002E654E /* LaunchScreen.storyboard in Resources */,
 				49E5A6DF1FCF2554002E654E /* Assets.xcassets in Resources */,
 				49E5A7181FCF2A42002E654E /* DetailViewController.xib in Resources */,
@@ -383,9 +404,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495FEF961FD1C8D6002C3C66 /* BrandViewController.swift in Sources */,
 				49E5A71E1FCF2CF3002E654E /* Vehicle.swift in Sources */,
 				49E5A6DA1FCF2554002E654E /* ViewController.swift in Sources */,
 				495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */,
+				495FEF9B1FD1CA2F002C3C66 /* BrandViewModel.swift in Sources */,
 				495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */,
 				49E5A70E1FCF2815002E654E /* BaseViewController.swift in Sources */,
 				49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */,
@@ -394,6 +417,7 @@
 				49E5A70B1FCF265A002E654E /* Coordinator.swift in Sources */,
 				495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */,
 				495FEF851FD1AE57002C3C66 /* BaseCoordinator .swift in Sources */,
+				495FEF991FD1C9D1002C3C66 /* BrandCoordinator.swift in Sources */,
 				49E5A71C1FCF2C11002E654E /* ListViewModel.swift in Sources */,
 				49E5A7201FCF30D9002E654E /* ListCoordinator.swift in Sources */,
 				49E5A71A1FCF2AAD002E654E /* ViewModelType.swift in Sources */,

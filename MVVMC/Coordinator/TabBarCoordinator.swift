@@ -30,6 +30,16 @@ class TabBarCoordinator: BaseCoordinator<Void> {
             guard let resultViewController = resultViewController else {
                 return
             }
+            resultViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+            self?.tabBarControllers.append(resultViewController)
+        }
+        
+        let brandsCoordinator = BrandCoordinator()
+        brandsCoordinator.start { [weak self] (resultViewController) in
+            guard let resultViewController = resultViewController else {
+                return
+            }
+            resultViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
             self?.tabBarControllers.append(resultViewController)
         }
         

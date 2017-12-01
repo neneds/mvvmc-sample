@@ -1,18 +1,19 @@
 //
-//  ListViewController.swift
+//  BrandViewController.swift
 //  MVVMC
 //
-//  Created by Dennis Merli on 11/29/17.
+//  Created by Dennis Merli on 12/1/17.
 //  Copyright © 2017 Dennis Merli. All rights reserved.
 //
 
 import UIKit
 
-class ListViewController: BaseViewController<ListViewModelType> {
+class BrandViewController: BaseViewController<BrandViewModelType> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Car List"
+        self.title = "Brands"
+
         // Do any additional setup after loading the view.
     }
 
