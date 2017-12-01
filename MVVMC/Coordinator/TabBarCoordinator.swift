@@ -24,6 +24,7 @@ class TabBarCoordinator: BaseCoordinator<Void> {
     override func start(completion: @escaping (UIViewController?) -> ()) {
         
         //Instantiate tabbar items coordinators
+        
         let listCoordinator = ListCoordinator()
         listCoordinator.start { [weak self] (resultViewController) in
             guard let resultViewController = resultViewController else {

@@ -10,6 +10,7 @@
 		495FEF851FD1AE57002C3C66 /* BaseCoordinator .swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF841FD1AE57002C3C66 /* BaseCoordinator .swift */; };
 		495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */; };
 		495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */; };
+		495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */; };
 		49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A6D71FCF2554002E654E /* AppDelegate.swift */; };
 		49E5A6DA1FCF2554002E654E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A6D91FCF2554002E654E /* ViewController.swift */; };
 		49E5A6DD1FCF2554002E654E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E5A6DB1FCF2554002E654E /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		495FEF841FD1AE57002C3C66 /* BaseCoordinator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCoordinator .swift"; sourceTree = "<group>"; };
 		495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		49E5A6D41FCF2554002E654E /* MVVMC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E5A6D71FCF2554002E654E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E5A6D91FCF2554002E654E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		495FEF8D1FD1BC9C002C3C66 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				495FEF8E1FD1BCA6002C3C66 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		495FEF8E1FD1BCA6002C3C66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		49E5A6CB1FCF2554002E654E = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +141,7 @@
 		49E5A6D61FCF2554002E654E /* MVVMC */ = {
 			isa = PBXGroup;
 			children = (
+				495FEF8D1FD1BC9C002C3C66 /* Helpers */,
 				49E5A70C1FCF2804002E654E /* Abstract Classes */,
 				49E5A7091FCF2614002E654E /* Protocols */,
 				49E5A7081FCF25D1002E654E /* ViewModel */,
@@ -373,6 +392,7 @@
 				49E5A7171FCF2A42002E654E /* DetailViewController.swift in Sources */,
 				49E5A7121FCF2A2A002E654E /* ListViewController.swift in Sources */,
 				49E5A70B1FCF265A002E654E /* Coordinator.swift in Sources */,
+				495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */,
 				495FEF851FD1AE57002C3C66 /* BaseCoordinator .swift in Sources */,
 				49E5A71C1FCF2C11002E654E /* ListViewModel.swift in Sources */,
 				49E5A7201FCF30D9002E654E /* ListCoordinator.swift in Sources */,

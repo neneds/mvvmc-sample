@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 
 class ListCoordinator: BaseCoordinator<Void> {
+    
     override func start(completion: @escaping (UIViewController?) -> ()) {
-        completion(nil)
+        guard let vc = ListViewController(viewModel: ListViewModel(), nibName: ListViewController.className, bundle: Bundle.main) as? ListViewController else {
+            return
+        }
+        completion(vc)
     }
 }

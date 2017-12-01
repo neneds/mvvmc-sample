@@ -11,13 +11,12 @@ import UIKit
 
 class BaseViewController<T>: UIViewController {
     
-    private(set) var viewModel: T
+    private(set) var viewModel: T?
     
-    init(viewModel: T) {
-        self.viewModel = viewModel
-        
+    
+    init(viewModel: T, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
-        
+        self.viewModel = viewModel
         configure(viewModel: viewModel)
     }
     

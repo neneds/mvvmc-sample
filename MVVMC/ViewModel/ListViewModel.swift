@@ -12,3 +12,7 @@ import Foundation
 protocol ListViewModelType: ViewModelType {
     
 }
+
+class ListViewModel: ListViewModelType {
+    
+}
