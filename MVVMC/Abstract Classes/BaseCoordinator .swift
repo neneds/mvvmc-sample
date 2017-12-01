@@ -11,13 +11,24 @@ import UIKit
 
 class BaseCoordinator<ResultType>: Coordinator {
   
-    
+    convenience init(navigationController: UINavigationController?) {
+        self.init()
+        guard let navigationController = navigationController else {
+            return
+        }
+        self.navigationController = navigationController
+    }
+
     typealias CoordinationResult = ResultType
 
     private let identifier = UUID()
     private var childCoordinators = [UUID: Any]()
-    
-  
+    var rootViewController: UIViewController?
+    var navigationController: UINavigationController? {
+        didSet {
+            self.rootViewController = navigationController
+        }
+    }
     private func store<T>(coordinator: BaseCoordinator<T>) {
         childCoordinators[coordinator.identifier] = coordinator
     }

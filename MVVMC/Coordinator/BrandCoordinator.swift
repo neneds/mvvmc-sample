@@ -16,6 +16,7 @@ class BrandCoordinator: BaseCoordinator<Void> {
         guard let vc = BrandViewController(viewModel: BrandViewModel(), nibName: BrandViewController.className, bundle: Bundle.main) as? BrandViewController else {
             return
         }
+        self.navigationController?.viewControllers.append(vc)
         completion(vc)
     }
 }

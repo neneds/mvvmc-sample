@@ -15,6 +15,7 @@ class ListCoordinator: BaseCoordinator<Void> {
         guard let vc = ListViewController(viewModel: ListViewModel(), nibName: ListViewController.className, bundle: Bundle.main) as? ListViewController else {
             return
         }
+        self.navigationController?.viewControllers.append(vc)
         completion(vc)
     }
 }

@@ -16,3 +16,4 @@ class Vehicle : NSObject {
     var urlImage: URL?
     var vehicleDescription: String?
 }
+    

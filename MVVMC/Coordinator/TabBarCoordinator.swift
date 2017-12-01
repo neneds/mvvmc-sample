@@ -25,7 +25,7 @@ class TabBarCoordinator: BaseCoordinator<Void> {
         
         //Instantiate tabbar items coordinators
         
-        let listCoordinator = ListCoordinator()
+        let listCoordinator = ListCoordinator(navigationController: UINavigationController())
         listCoordinator.start { [weak self] (resultViewController) in
             guard let resultViewController = resultViewController else {
                 return
@@ -34,7 +34,7 @@ class TabBarCoordinator: BaseCoordinator<Void> {
             self?.tabBarControllers.append(resultViewController)
         }
         
-        let brandsCoordinator = BrandCoordinator()
+        let brandsCoordinator = BrandCoordinator(navigationController: UINavigationController())
         brandsCoordinator.start { [weak self] (resultViewController) in
             guard let resultViewController = resultViewController else {
                 return
