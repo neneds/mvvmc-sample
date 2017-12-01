@@ -16,6 +16,9 @@
 		495FEF991FD1C9D1002C3C66 /* BrandCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF981FD1C9D1002C3C66 /* BrandCoordinator.swift */; };
 		495FEF9B1FD1CA2F002C3C66 /* BrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */; };
 		495FEF9D1FD1DBD8002C3C66 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF9C1FD1DBD8002C3C66 /* Brand.swift */; };
+		495FEFA11FD1DD1A002C3C66 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF9F1FD1DD1A002C3C66 /* VehicleTableViewCell.swift */; };
+		495FEFA21FD1DD1A002C3C66 /* VehicleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495FEFA01FD1DD1A002C3C66 /* VehicleTableViewCell.xib */; };
+		495FEFA51FD1E505002C3C66 /* vehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = 495FEFA41FD1E505002C3C66 /* vehicles.json */; };
 		49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A6D71FCF2554002E654E /* AppDelegate.swift */; };
 		49E5A6DA1FCF2554002E654E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A6D91FCF2554002E654E /* ViewController.swift */; };
 		49E5A6DD1FCF2554002E654E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E5A6DB1FCF2554002E654E /* Main.storyboard */; };
@@ -62,6 +65,9 @@
 		495FEF981FD1C9D1002C3C66 /* BrandCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCoordinator.swift; sourceTree = "<group>"; };
 		495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewModel.swift; sourceTree = "<group>"; };
 		495FEF9C1FD1DBD8002C3C66 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		495FEF9F1FD1DD1A002C3C66 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
+		495FEFA01FD1DD1A002C3C66 /* VehicleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleTableViewCell.xib; sourceTree = "<group>"; };
+		495FEFA41FD1E505002C3C66 /* vehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vehicles.json; sourceTree = "<group>"; };
 		49E5A6D41FCF2554002E654E /* MVVMC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E5A6D71FCF2554002E654E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E5A6D91FCF2554002E654E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 		495FEF8D1FD1BC9C002C3C66 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				495FEFA31FD1E4EC002C3C66 /* Resources */,
 				495FEF8E1FD1BCA6002C3C66 /* Extensions */,
 			);
 			path = Helpers;
@@ -135,6 +142,23 @@
 				495FEF951FD1C8D6002C3C66 /* BrandViewController.xib */,
 			);
 			path = Brands;
+			sourceTree = "<group>";
+		};
+		495FEF9E1FD1DCF1002C3C66 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				495FEF9F1FD1DD1A002C3C66 /* VehicleTableViewCell.swift */,
+				495FEFA01FD1DD1A002C3C66 /* VehicleTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		495FEFA31FD1E4EC002C3C66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				495FEFA41FD1E505002C3C66 /* vehicles.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		49E5A6CB1FCF2554002E654E = {
@@ -160,6 +184,7 @@
 		49E5A6D61FCF2554002E654E /* MVVMC */ = {
 			isa = PBXGroup;
 			children = (
+				495FEF9E1FD1DCF1002C3C66 /* Cells */,
 				495FEF8D1FD1BC9C002C3C66 /* Helpers */,
 				49E5A70C1FCF2804002E654E /* Abstract Classes */,
 				49E5A7091FCF2614002E654E /* Protocols */,
@@ -377,11 +402,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495FEFA51FD1E505002C3C66 /* vehicles.json in Resources */,
 				495FEF971FD1C8D6002C3C66 /* BrandViewController.xib in Resources */,
 				49E5A6E21FCF2554002E654E /* LaunchScreen.storyboard in Resources */,
 				49E5A6DF1FCF2554002E654E /* Assets.xcassets in Resources */,
 				49E5A7181FCF2A42002E654E /* DetailViewController.xib in Resources */,
 				49E5A7131FCF2A2A002E654E /* ListViewController.xib in Resources */,
+				495FEFA21FD1DD1A002C3C66 /* VehicleTableViewCell.xib in Resources */,
 				49E5A6DD1FCF2554002E654E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +440,7 @@
 				49E5A6DA1FCF2554002E654E /* ViewController.swift in Sources */,
 				495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */,
 				495FEF9B1FD1CA2F002C3C66 /* BrandViewModel.swift in Sources */,
+				495FEFA11FD1DD1A002C3C66 /* VehicleTableViewCell.swift in Sources */,
 				495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */,
 				49E5A70E1FCF2815002E654E /* BaseViewController.swift in Sources */,
 				49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */,
