@@ -17,6 +17,9 @@ class BaseViewController<T>: UIViewController {
     init(viewModel: T, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
+        if var viewModelDelegate = (self.viewModel as? BaseViewModel)?.delegate {
+            viewModelDelegate = self as! ViewModelType
+        }
         configure(viewModel: viewModel)
     }
     

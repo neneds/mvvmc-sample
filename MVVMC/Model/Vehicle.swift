@@ -7,27 +7,25 @@
 //
 
 import Foundation
+import ObjectMapper
 
-
-class Vehicle : NSObject {
+class Vehicle : Mappable {
     var id: String?
     var name: String?
-    var maker: String?
+    var brand: Brand?
     var urlImage: URL?
     var vehicleDescription: String?
     
     
     required init?(map: Map) {
-        super.init(map: map)
+
     }
     
-    override func mapping(map: Map) {
-        super.mapping(map: map)
-        
+   func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
-        maker <- map["brandName"]
-        urlImage <- map["pictureAddress"]
+        brand <- map["brand"]
+        urlImage <- (map["pictureAddress"], TransformersUtils.URLTransformer)
         vehicleDescription <- map["vehicleDescription"]
     }
 }

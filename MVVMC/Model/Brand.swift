@@ -7,10 +7,23 @@
 //
 
 import Foundation
+import ObjectMapper
 
-
-class Brand: NSObject {
+class Brand: Mappable {
+    var id: String?
     var name: String?
     var brandDescription: String?
     var brandImageURL: URL?
+
+
+    required init?(map: Map) {
+     
+    }
+
+   func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        brandDescription <- map["brandDescription"]
+        brandImageURL <- (map["brandPictureAddress"], TransformersUtils.URLTransformer)
+    }
 }

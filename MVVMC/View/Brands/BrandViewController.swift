@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BrandViewController: BaseViewController<BrandViewModelType> {
+class BrandViewController: BaseViewController<BrandViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()

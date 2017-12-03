@@ -10,6 +10,11 @@ import UIKit
 
 class DetailViewController: BaseViewController<Void> {
 
+    @IBOutlet weak var imgVehicle: UIImageView!
+    @IBOutlet weak var lblBrandName: UILabel!
+    @IBOutlet weak var lblModelName: UILabel!
+    @IBOutlet weak var txtModelDescription: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

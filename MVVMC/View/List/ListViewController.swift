@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: BaseViewController<ListViewModelType>, UITableViewDelegate, UITableViewDataSource {
+class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,6 +17,7 @@ class ListViewController: BaseViewController<ListViewModelType>, UITableViewDele
         self.title = "Car List"
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -24,11 +25,22 @@ class ListViewController: BaseViewController<ListViewModelType>, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return viewModel!.vehicles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VehicleTableViewCell.reuseIdentifier, for: indexPath) as? VehicleTableViewCell else {
+            return UITableViewCell()
+        }
+
+        let vehicle = viewModel?.vehicles[indexPath.row]
+        cell.imgVehicle.image?.loadImageFromURL((vehicle?.urlImage)!, completion: { (image) in
+            cell.imgVehicle.image = image
+        })
+        cell.lblVehicleName.text = vehicle?.name
+        cell.selectionStyle = .none
+        return cell
+        
     }
 
 }

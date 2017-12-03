@@ -12,7 +12,7 @@ protocol BrandViewModelType: ViewModelType {
     
 }
 
-class BrandViewModel: BrandViewModelType {
+class BrandViewModel: BaseViewModel {
     func reloadTableView() {
         
     }
