@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4958A3D41FD5A57100420B47 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A3D31FD5A57100420B47 /* DetailViewModel.swift */; };
+		4958A3D61FD5B2D400420B47 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A3D51FD5B2D400420B47 /* UIView+Extension.swift */; };
 		495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF841FD1AE57002C3C66 /* BaseCoordinator.swift */; };
 		495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */; };
 		495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */; };
@@ -66,6 +67,7 @@
 		0ED369F98B12F281CEEC4E46 /* Pods-MVVMCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCUITests/Pods-MVVMCUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3CF872EEAAD7EC66FB168C09 /* Pods_MVVMC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4958A3D31FD5A57100420B47 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		4958A3D51FD5B2D400420B47 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		495FEF841FD1AE57002C3C66 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				AF8779421FD22363008499AE /* Bundle+Extension.swift */,
 				AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */,
 				AF11FF131FD22E94005F8AFF /* TransformersUtils.swift */,
+				4958A3D51FD5B2D400420B47 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				AF11FF141FD22E94005F8AFF /* TransformersUtils.swift in Sources */,
 				AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */,
 				495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */,
+				4958A3D61FD5B2D400420B47 /* UIView+Extension.swift in Sources */,
 				495FEF991FD1C9D1002C3C66 /* BrandCoordinator.swift in Sources */,
 				AF11FF101FD22B27005F8AFF /* BaseViewModel.swift in Sources */,
 				49E5A71C1FCF2C11002E654E /* ListViewModel.swift in Sources */,

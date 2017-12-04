@@ -21,15 +21,22 @@ protocol ListViewModelCoordinatorDelegate : class {
 }
 
 class ListViewModel: BaseViewModel {
+    
+    override init() {
+        super.init()
+        refreshVehicles()
+    }
 
     var coordinatorDelegate: ListViewModelCoordinatorDelegate?
     var vehicles : [Vehicle] = []
 
     func refreshVehicles() {
-        self.loadVehicles { (result) in
+        delegate?.showHUD()
+        self.loadVehicles { [weak self] (result) in
+            self?.delegate?.hideHUD()
             if result != nil {
-                self.vehicles = result!
-                self.delegate?.reloadTableView()
+                self?.vehicles = result!
+                self?.delegate?.reloadTableView()
             }
         }
     }

@@ -18,7 +18,6 @@ class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
-        self.viewModel?.refreshVehicles()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,18 +61,12 @@ extension ListViewController : ListViewModelType {
     }
 
     func showHUD() {
-
+       self.view.lockView()
     }
 
     func hideHUD() {
-        
+       self.view.unlockView()
     }
-
-    func loadVehicles(completion: @escaping ([Vehicle]?) -> ()) {
-        
-    }
-
-
 }
 
 
