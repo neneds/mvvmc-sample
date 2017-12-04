@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: BaseViewController<Void> {
+class DetailViewController: BaseViewController<DetailViewModel> {
 
     @IBOutlet weak var imgVehicle: UIImageView!
     @IBOutlet weak var lblBrandName: UILabel!
@@ -17,25 +17,21 @@ class DetailViewController: BaseViewController<Void> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Do any additional setup after loading the view.
+        bindData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func bindData() {
+        lblBrandName.text = viewModel?.currentVehicle?.brand?.name
+        lblModelName.text = viewModel?.currentVehicle?.name
+        txtModelDescription.text = viewModel?.currentVehicle?.vehicleDescription
+        if let imageURL = viewModel?.currentVehicle?.urlImage {
+            UIImage.loadImageFromURL(imageURL) { (resultImage) in
+                guard let resultImage = resultImage else {
+                    return
+                }
+                self.imgVehicle.image = resultImage
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -18,12 +18,15 @@ class ListCoordinator: BaseCoordinator<Void> {
             return
         }
         self.navigationController?.viewControllers.append(vc)
-        completion(vc)
+        completion(self.navigationController)
     }
 }
 
 extension ListCoordinator : ViewModelCoordinatorDelegate {
-    func shouldMakeSegue(identifier: Any?, sender: Any?) {
+    func shouldMakeSegue(viewModel: Any?, sender: Any?) {
+        let viewModel = DetailViewModel(vehicle: sender as! Vehicle)
+        let vc = DetailViewController(viewModel: viewModel, nibName: DetailViewController.className, bundle: Bundle.main)
+        self.navigationController?.pushViewController(vc, animated: true)
         print("should make segue")
     }
 }

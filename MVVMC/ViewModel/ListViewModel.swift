@@ -45,6 +45,6 @@ class ListViewModel: BaseViewModel {
     ///React to tableview selection o view
     func didSelectIndexPath(indexPath: IndexPath) {
         let vehicle = self.vehicles[indexPath.row]
-        self.coordinatorDelegate?.shouldMakeSegue(identifier: "", sender: vehicle)
+        self.coordinatorDelegate?.shouldMakeSegue(viewModel: self, sender: vehicle)
     }
 }

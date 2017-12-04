@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4958A3D41FD5A57100420B47 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A3D31FD5A57100420B47 /* DetailViewModel.swift */; };
 		495FEF851FD1AE57002C3C66 /* BaseCoordinator .swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF841FD1AE57002C3C66 /* BaseCoordinator .swift */; };
 		495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */; };
 		495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		0ED369F98B12F281CEEC4E46 /* Pods-MVVMCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCUITests/Pods-MVVMCUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3CF872EEAAD7EC66FB168C09 /* Pods_MVVMC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4958A3D31FD5A57100420B47 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		495FEF841FD1AE57002C3C66 /* BaseCoordinator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCoordinator .swift"; sourceTree = "<group>"; };
 		495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				49E5A71B1FCF2C11002E654E /* ListViewModel.swift */,
 				495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */,
 				AF11FF0F1FD22B27005F8AFF /* BaseViewModel.swift */,
+				4958A3D31FD5A57100420B47 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -617,19 +620,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMC/Pods-MVVMC-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -668,6 +663,7 @@
 				495FEF9B1FD1CA2F002C3C66 /* BrandViewModel.swift in Sources */,
 				495FEFA11FD1DD1A002C3C66 /* VehicleTableViewCell.swift in Sources */,
 				495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */,
+				4958A3D41FD5A57100420B47 /* DetailViewModel.swift in Sources */,
 				49E5A70E1FCF2815002E654E /* BaseViewController.swift in Sources */,
 				49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */,
 				AF7F27101FD4CBE600364633 /* ViewModelCoordinatorDelegate.swift in Sources */,

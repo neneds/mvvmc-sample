@@ -24,6 +24,7 @@ class BaseCoordinator<ResultType>: Coordinator {
     private let identifier = UUID()
     private var childCoordinators = [UUID: Any]()
     var rootViewController: UIViewController?
+    
     var navigationController: UINavigationController? {
         didSet {
             self.rootViewController = navigationController

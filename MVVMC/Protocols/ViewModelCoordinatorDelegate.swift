@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol ViewModelCoordinatorDelegate : class {
-    func shouldMakeSegue(identifier: Any?, sender:Any?)
+    func shouldMakeSegue(viewModel: Any?, sender:Any?)
 }
