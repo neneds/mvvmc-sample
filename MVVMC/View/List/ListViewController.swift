@@ -56,7 +56,7 @@ class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate
 
 
 extension ListViewController : ListViewModelType {
-    func reloadTableView() {
+    func reloadView() {
         tableView.reloadData()
     }
 

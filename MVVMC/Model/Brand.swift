@@ -24,6 +24,6 @@ class Brand: Mappable {
         id <- map["id"]
         name <- map["name"]
         brandDescription <- map["brandDescription"]
-        brandImageURL <- (map["brandPictureAddress"], TransformersUtils.URLTransformer)
+        brandImageURL <- (map["brandImageURL"], TransformersUtils.URLTransformer)
     }
 }

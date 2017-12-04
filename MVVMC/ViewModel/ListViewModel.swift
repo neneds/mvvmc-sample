@@ -36,7 +36,7 @@ class ListViewModel: BaseViewModel {
             self?.delegate?.hideHUD()
             if result != nil {
                 self?.vehicles = result!
-                self?.delegate?.reloadTableView()
+                self?.delegate?.reloadView()
             }
         }
     }

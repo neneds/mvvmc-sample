@@ -15,6 +15,6 @@ class BrandCoordinator: BaseCoordinator {
     override func start(completion: @escaping (UIViewController?) -> ()) {
         let vc: BrandViewController = BrandViewController(viewModel: BrandViewModel(), nibName: BrandViewController.className, bundle: Bundle.main)
         self.navigationController?.viewControllers.append(vc)
-        completion(vc)
+        completion(self.navigationController)
     }
 }

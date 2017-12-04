@@ -43,6 +43,9 @@
 		AF11FF141FD22E94005F8AFF /* TransformersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF131FD22E94005F8AFF /* TransformersUtils.swift */; };
 		AF8779431FD22363008499AE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8779421FD22363008499AE /* Bundle+Extension.swift */; };
 		AFCB59901FD60C8700992D6A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB598F1FD60C8700992D6A /* DetailCoordinator.swift */; };
+		AFCB59931FD60F6E00992D6A /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB59911FD60F6E00992D6A /* BrandCollectionViewCell.swift */; };
+		AFCB59941FD60F6E00992D6A /* BrandCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCB59921FD60F6E00992D6A /* BrandCollectionViewCell.xib */; };
+		AFCB59961FD6151000992D6A /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = AFCB59951FD6151000992D6A /* brands.json */; };
 		B628A0FE68DEAD3932F54C9A /* Pods_MVVMCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCE400680310A943D34F99B /* Pods_MVVMCUITests.framework */; };
 		D78D361BF17C2D7DD447BE55 /* Pods_MVVMCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1889311D031E1F8D04AD99 /* Pods_MVVMCTests.framework */; };
 /* End PBXBuildFile section */
@@ -110,6 +113,9 @@
 		AF11FF131FD22E94005F8AFF /* TransformersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersUtils.swift; sourceTree = "<group>"; };
 		AF8779421FD22363008499AE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		AFCB598F1FD60C8700992D6A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		AFCB59911FD60F6E00992D6A /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
+		AFCB59921FD60F6E00992D6A /* BrandCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandCollectionViewCell.xib; sourceTree = "<group>"; };
+		AFCB59951FD6151000992D6A /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = brands.json; sourceTree = "<group>"; };
 		B1500BC24A08674A710B675D /* Pods-MVVMCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCTests/Pods-MVVMCTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8667140682CD61AC2A513A0 /* Pods-MVVMCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCUITests/Pods-MVVMCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB45065FCF131C8CE252FD03 /* Pods-MVVMCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCTests/Pods-MVVMCTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 			children = (
 				495FEF9F1FD1DD1A002C3C66 /* VehicleTableViewCell.swift */,
 				495FEFA01FD1DD1A002C3C66 /* VehicleTableViewCell.xib */,
+				AFCB59911FD60F6E00992D6A /* BrandCollectionViewCell.swift */,
+				AFCB59921FD60F6E00992D6A /* BrandCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 		495FEFA31FD1E4EC002C3C66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AFCB59951FD6151000992D6A /* brands.json */,
 				495FEFA41FD1E505002C3C66 /* vehicles.json */,
 			);
 			path = Resources;
@@ -479,8 +488,10 @@
 			files = (
 				495FEFA51FD1E505002C3C66 /* vehicles.json in Resources */,
 				495FEF971FD1C8D6002C3C66 /* BrandViewController.xib in Resources */,
+				AFCB59941FD60F6E00992D6A /* BrandCollectionViewCell.xib in Resources */,
 				49E5A6E21FCF2554002E654E /* LaunchScreen.storyboard in Resources */,
 				49E5A6DF1FCF2554002E654E /* Assets.xcassets in Resources */,
+				AFCB59961FD6151000992D6A /* brands.json in Resources */,
 				49E5A7181FCF2A42002E654E /* DetailViewController.xib in Resources */,
 				49E5A7131FCF2A2A002E654E /* ListViewController.xib in Resources */,
 				495FEFA21FD1DD1A002C3C66 /* VehicleTableViewCell.xib in Resources */,
@@ -661,6 +672,7 @@
 			files = (
 				495FEF961FD1C8D6002C3C66 /* BrandViewController.swift in Sources */,
 				495FEF9D1FD1DBD8002C3C66 /* Brand.swift in Sources */,
+				AFCB59931FD60F6E00992D6A /* BrandCollectionViewCell.swift in Sources */,
 				49E5A71E1FCF2CF3002E654E /* Vehicle.swift in Sources */,
 				495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */,
 				495FEF9B1FD1CA2F002C3C66 /* BrandViewModel.swift in Sources */,

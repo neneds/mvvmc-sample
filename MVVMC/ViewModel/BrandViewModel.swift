@@ -7,23 +7,43 @@
 //
 
 import Foundation
+import ObjectMapper
 
 protocol BrandViewModelType: ViewModelType {
-    
+  
 }
 
 class BrandViewModel: BaseViewModel {
-    func reloadTableView() {
-        
+
+    var brands : [Brand] = []
+
+    override init() {
+        super.init()
+        refreshBrands()
     }
-    
-    func showHUD() {
-        
+
+    func refreshBrands() {
+        delegate?.showHUD()
+        self.loadBrands { [weak self] (result) in
+            self?.delegate?.hideHUD()
+            if result != nil {
+                self?.brands = result!
+                self?.delegate?.reloadView()
+            }
+        }
     }
-    
-    func hideHUD() {
-        
+
+    ///Load data from an API
+    internal func loadBrands(completion: @escaping ([Brand]?) -> ()) {
+        guard let json = Bundle.loadJSONFromBundle(resourceName: "brands") else {
+            completion(nil)
+            return
+        }
+        guard let brands = Mapper<Brand>().mapArray(JSONObject: json) else {
+            completion(nil)
+            return
+        }
+
+        completion(brands)
     }
-    
-    
 }
