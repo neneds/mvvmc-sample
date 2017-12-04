@@ -42,6 +42,7 @@
 		AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */; };
 		AF11FF141FD22E94005F8AFF /* TransformersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF131FD22E94005F8AFF /* TransformersUtils.swift */; };
 		AF8779431FD22363008499AE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8779421FD22363008499AE /* Bundle+Extension.swift */; };
+		AFCB59901FD60C8700992D6A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB598F1FD60C8700992D6A /* DetailCoordinator.swift */; };
 		B628A0FE68DEAD3932F54C9A /* Pods_MVVMCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCE400680310A943D34F99B /* Pods_MVVMCUITests.framework */; };
 		D78D361BF17C2D7DD447BE55 /* Pods_MVVMCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1889311D031E1F8D04AD99 /* Pods_MVVMCTests.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		AF11FF131FD22E94005F8AFF /* TransformersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersUtils.swift; sourceTree = "<group>"; };
 		AF8779421FD22363008499AE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		AFCB598F1FD60C8700992D6A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		B1500BC24A08674A710B675D /* Pods-MVVMCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCTests/Pods-MVVMCTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8667140682CD61AC2A513A0 /* Pods-MVVMCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCUITests/Pods-MVVMCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB45065FCF131C8CE252FD03 /* Pods-MVVMCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCTests/Pods-MVVMCTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */,
 				495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */,
 				495FEF981FD1C9D1002C3C66 /* BrandCoordinator.swift */,
+				AFCB598F1FD60C8700992D6A /* DetailCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				495FEFA11FD1DD1A002C3C66 /* VehicleTableViewCell.swift in Sources */,
 				495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */,
 				4958A3D41FD5A57100420B47 /* DetailViewModel.swift in Sources */,
+				AFCB59901FD60C8700992D6A /* DetailCoordinator.swift in Sources */,
 				49E5A70E1FCF2815002E654E /* BaseViewController.swift in Sources */,
 				49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */,
 				49E5A7171FCF2A42002E654E /* DetailViewController.swift in Sources */,
