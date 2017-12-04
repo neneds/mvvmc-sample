@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class TabBarCoordinator: BaseCoordinator<Void> {
+class TabBarCoordinator: BaseCoordinator {
     
     private let window: UIWindow
     

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BaseCoordinator<ResultType>: Coordinator {
+class BaseCoordinator: Coordinator {
   
     convenience init(navigationController: UINavigationController?) {
         self.init()
@@ -19,27 +19,20 @@ class BaseCoordinator<ResultType>: Coordinator {
         self.navigationController = navigationController
     }
 
-    typealias CoordinationResult = ResultType
-
     private let identifier = UUID()
     private var childCoordinators = [UUID: Any]()
-    var rootViewController: UIViewController?
+    var navigationController: UINavigationController?
     
-    var navigationController: UINavigationController? {
-        didSet {
-            self.rootViewController = navigationController
-        }
-    }
-    private func store<T>(coordinator: BaseCoordinator<T>) {
+    private func store(coordinator: BaseCoordinator) {
         childCoordinators[coordinator.identifier] = coordinator
     }
    
-    private func free<T>(coordinator: BaseCoordinator<T>) {
+    private func free(coordinator: BaseCoordinator) {
         childCoordinators[coordinator.identifier] = nil
     }
     
 
-    func coordinate<T>(to coordinator: BaseCoordinator<T>) {
+    func coordinate(to coordinator: BaseCoordinator) {
         store(coordinator: coordinator)
         coordinator.start { (_) in}
     }

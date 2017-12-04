@@ -15,8 +15,14 @@ protocol ListViewModelType: ViewModelType {
 
 }
 
+///Protocol to inform actions to coordinador
+protocol ListViewModelCoordinatorDelegate : class {
+    func shouldMakeSegue(viewModel: Any?, sender:Any?)
+}
+
 class ListViewModel: BaseViewModel {
 
+    var coordinatorDelegate: ListViewModelCoordinatorDelegate?
     var vehicles : [Vehicle] = []
 
     func refreshVehicles() {

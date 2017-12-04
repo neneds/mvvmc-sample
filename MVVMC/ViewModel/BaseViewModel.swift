@@ -13,7 +13,4 @@ class BaseViewModel: NSObject {
 
     // MARK: Properties
     weak var delegate: ViewModelType?
-    var coordinatorDelegate: ViewModelCoordinatorDelegate?
-    
-
 }

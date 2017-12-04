@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: BaseCoordinator<Void> {
+class AppCoordinator: BaseCoordinator {
     
     private let window: UIWindow
     

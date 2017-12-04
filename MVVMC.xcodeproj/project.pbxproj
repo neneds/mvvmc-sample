@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4958A3D41FD5A57100420B47 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A3D31FD5A57100420B47 /* DetailViewModel.swift */; };
-		495FEF851FD1AE57002C3C66 /* BaseCoordinator .swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF841FD1AE57002C3C66 /* BaseCoordinator .swift */; };
+		495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF841FD1AE57002C3C66 /* BaseCoordinator.swift */; };
 		495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */; };
 		495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */; };
 		495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */; };
@@ -40,7 +40,6 @@
 		AF11FF101FD22B27005F8AFF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF0F1FD22B27005F8AFF /* BaseViewModel.swift */; };
 		AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */; };
 		AF11FF141FD22E94005F8AFF /* TransformersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF131FD22E94005F8AFF /* TransformersUtils.swift */; };
-		AF7F27101FD4CBE600364633 /* ViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F270F1FD4CBE600364633 /* ViewModelCoordinatorDelegate.swift */; };
 		AF8779431FD22363008499AE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8779421FD22363008499AE /* Bundle+Extension.swift */; };
 		B628A0FE68DEAD3932F54C9A /* Pods_MVVMCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCE400680310A943D34F99B /* Pods_MVVMCUITests.framework */; };
 		D78D361BF17C2D7DD447BE55 /* Pods_MVVMCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1889311D031E1F8D04AD99 /* Pods_MVVMCTests.framework */; };
@@ -67,7 +66,7 @@
 		0ED369F98B12F281CEEC4E46 /* Pods-MVVMCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCUITests/Pods-MVVMCUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3CF872EEAAD7EC66FB168C09 /* Pods_MVVMC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4958A3D31FD5A57100420B47 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		495FEF841FD1AE57002C3C66 /* BaseCoordinator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCoordinator .swift"; sourceTree = "<group>"; };
+		495FEF841FD1AE57002C3C66 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
@@ -106,7 +105,6 @@
 		AF11FF0F1FD22B27005F8AFF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		AF11FF131FD22E94005F8AFF /* TransformersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersUtils.swift; sourceTree = "<group>"; };
-		AF7F270F1FD4CBE600364633 /* ViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		AF8779421FD22363008499AE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		B1500BC24A08674A710B675D /* Pods-MVVMCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCTests/Pods-MVVMCTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8667140682CD61AC2A513A0 /* Pods-MVVMCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCUITests/Pods-MVVMCUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 			children = (
 				49E5A70A1FCF265A002E654E /* Coordinator.swift */,
 				49E5A7191FCF2AAD002E654E /* ViewModelType.swift */,
-				AF7F270F1FD4CBE600364633 /* ViewModelCoordinatorDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -310,7 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				49E5A70D1FCF2815002E654E /* BaseViewController.swift */,
-				495FEF841FD1AE57002C3C66 /* BaseCoordinator .swift */,
+				495FEF841FD1AE57002C3C66 /* BaseCoordinator.swift */,
 			);
 			path = "Abstract Classes";
 			sourceTree = "<group>";
@@ -666,7 +663,6 @@
 				4958A3D41FD5A57100420B47 /* DetailViewModel.swift in Sources */,
 				49E5A70E1FCF2815002E654E /* BaseViewController.swift in Sources */,
 				49E5A6D81FCF2554002E654E /* AppDelegate.swift in Sources */,
-				AF7F27101FD4CBE600364633 /* ViewModelCoordinatorDelegate.swift in Sources */,
 				49E5A7171FCF2A42002E654E /* DetailViewController.swift in Sources */,
 				AF8779431FD22363008499AE /* Bundle+Extension.swift in Sources */,
 				49E5A7121FCF2A2A002E654E /* ListViewController.swift in Sources */,
@@ -674,7 +670,7 @@
 				495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */,
 				AF11FF141FD22E94005F8AFF /* TransformersUtils.swift in Sources */,
 				AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */,
-				495FEF851FD1AE57002C3C66 /* BaseCoordinator .swift in Sources */,
+				495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */,
 				495FEF991FD1C9D1002C3C66 /* BrandCoordinator.swift in Sources */,
 				AF11FF101FD22B27005F8AFF /* BaseViewModel.swift in Sources */,
 				49E5A71C1FCF2C11002E654E /* ListViewModel.swift in Sources */,
