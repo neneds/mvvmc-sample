@@ -18,30 +18,61 @@ class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
+        self.viewModel?.refreshVehicles()
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel!.vehicles.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VehicleTableViewCell.reuseIdentifier, for: indexPath) as? VehicleTableViewCell else {
             return UITableViewCell()
         }
 
         let vehicle = viewModel?.vehicles[indexPath.row]
-        cell.imgVehicle.image?.loadImageFromURL((vehicle?.urlImage)!, completion: { (image) in
-            cell.imgVehicle.image = image
-        })
+        
+        if let imageURL = vehicle?.urlImage {
+            UIImage.loadImageFromURL(imageURL) { (resultImage) in
+                guard let resultImage = resultImage else {
+                    return
+                }
+                cell.imgVehicle.image = resultImage
+            }
+        }
         cell.lblVehicleName.text = vehicle?.name
         cell.selectionStyle = .none
         return cell
+
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel?.didSelectIndexPath(indexPath: indexPath)
+    }
+}
+
+
+extension ListViewController : ListViewModelType {
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+
+    func showHUD() {
+
+    }
+
+    func hideHUD() {
         
     }
+
+    func loadVehicles(completion: @escaping ([Vehicle]?) -> ()) {
+        
+    }
+
 
 }
 

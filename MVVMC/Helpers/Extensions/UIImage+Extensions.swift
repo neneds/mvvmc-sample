@@ -11,7 +11,7 @@ import UIKit
 
 extension UIImage {
 
-    func loadImageFromURL(_ url: URL,completion:@escaping (_ image: UIImage?)->Void){
+    class func loadImageFromURL(_ url: URL,completion:@escaping (_ image: UIImage?)->Void){
         let qualityOfServiceClass = DispatchQoS.QoSClass.background
         let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
         backgroundQueue.async(execute: {

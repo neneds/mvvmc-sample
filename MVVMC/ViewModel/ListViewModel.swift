@@ -9,8 +9,10 @@
 import Foundation
 import ObjectMapper
 
-protocol ListViewModelType: class {
-    func loadVehicles(completion: @escaping ([Vehicle]?) -> ())
+
+///Specific methods that this viewModel should have
+protocol ListViewModelType: ViewModelType {
+
 }
 
 class ListViewModel: BaseViewModel {
@@ -38,5 +40,11 @@ class ListViewModel: BaseViewModel {
         }
 
         completion(vehicles)
+    }
+
+    ///React to tableview selection o view
+    func didSelectIndexPath(indexPath: IndexPath) {
+        let vehicle = self.vehicles[indexPath.row]
+        self.coordinatorDelegate?.shouldMakeSegue(identifier: "", sender: vehicle)
     }
 }

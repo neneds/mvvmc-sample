@@ -6,7 +6,6 @@ target 'MVVMC' do
   use_frameworks!
     pod 'Alamofire', '~> 4.5.1'
     pod 'AlamofireObjectMapper', :git => 'https://github.com/tristanhimmelman/AlamofireObjectMapper.git'
-pod 'Moya'
 
   # Pods for MVVMC
 
