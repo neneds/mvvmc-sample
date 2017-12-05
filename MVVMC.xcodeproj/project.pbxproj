@@ -46,6 +46,9 @@
 		AFCB59931FD60F6E00992D6A /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB59911FD60F6E00992D6A /* BrandCollectionViewCell.swift */; };
 		AFCB59941FD60F6E00992D6A /* BrandCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCB59921FD60F6E00992D6A /* BrandCollectionViewCell.xib */; };
 		AFCB59961FD6151000992D6A /* brands.json in Resources */ = {isa = PBXBuildFile; fileRef = AFCB59951FD6151000992D6A /* brands.json */; };
+		AFCB599A1FD61A0C00992D6A /* VehicleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB59981FD61A0C00992D6A /* VehicleDetailViewController.swift */; };
+		AFCB599B1FD61A0C00992D6A /* VehicleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCB59991FD61A0C00992D6A /* VehicleDetailViewController.xib */; };
+		AFCB599D1FD61A8B00992D6A /* VehicleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB599C1FD61A8B00992D6A /* VehicleDetailViewModel.swift */; };
 		B628A0FE68DEAD3932F54C9A /* Pods_MVVMCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCE400680310A943D34F99B /* Pods_MVVMCUITests.framework */; };
 		D78D361BF17C2D7DD447BE55 /* Pods_MVVMCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1889311D031E1F8D04AD99 /* Pods_MVVMCTests.framework */; };
 /* End PBXBuildFile section */
@@ -116,6 +119,9 @@
 		AFCB59911FD60F6E00992D6A /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
 		AFCB59921FD60F6E00992D6A /* BrandCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandCollectionViewCell.xib; sourceTree = "<group>"; };
 		AFCB59951FD6151000992D6A /* brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = brands.json; sourceTree = "<group>"; };
+		AFCB59981FD61A0C00992D6A /* VehicleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewController.swift; sourceTree = "<group>"; };
+		AFCB59991FD61A0C00992D6A /* VehicleDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleDetailViewController.xib; sourceTree = "<group>"; };
+		AFCB599C1FD61A8B00992D6A /* VehicleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewModel.swift; sourceTree = "<group>"; };
 		B1500BC24A08674A710B675D /* Pods-MVVMCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCTests/Pods-MVVMCTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8667140682CD61AC2A513A0 /* Pods-MVVMCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCUITests/Pods-MVVMCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB45065FCF131C8CE252FD03 /* Pods-MVVMCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMCTests/Pods-MVVMCTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -291,6 +297,7 @@
 		49E5A7071FCF25CA002E654E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AFCB59971FD619EB00992D6A /* VehicleDetail */,
 				495FEF931FD1C8B5002C3C66 /* Brands */,
 				49E5A7141FCF2A2F002E654E /* Detail */,
 				49E5A70F1FCF2A0E002E654E /* List */,
@@ -305,6 +312,7 @@
 				495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */,
 				AF11FF0F1FD22B27005F8AFF /* BaseViewModel.swift */,
 				4958A3D31FD5A57100420B47 /* DetailViewModel.swift */,
+				AFCB599C1FD61A8B00992D6A /* VehicleDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -368,6 +376,15 @@
 				49E5A6E31FCF2554002E654E /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AFCB59971FD619EB00992D6A /* VehicleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AFCB59981FD61A0C00992D6A /* VehicleDetailViewController.swift */,
+				AFCB59991FD61A0C00992D6A /* VehicleDetailViewController.xib */,
+			);
+			path = VehicleDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +506,7 @@
 				495FEFA51FD1E505002C3C66 /* vehicles.json in Resources */,
 				495FEF971FD1C8D6002C3C66 /* BrandViewController.xib in Resources */,
 				AFCB59941FD60F6E00992D6A /* BrandCollectionViewCell.xib in Resources */,
+				AFCB599B1FD61A0C00992D6A /* VehicleDetailViewController.xib in Resources */,
 				49E5A6E21FCF2554002E654E /* LaunchScreen.storyboard in Resources */,
 				49E5A6DF1FCF2554002E654E /* Assets.xcassets in Resources */,
 				AFCB59961FD6151000992D6A /* brands.json in Resources */,
@@ -672,6 +690,7 @@
 			files = (
 				495FEF961FD1C8D6002C3C66 /* BrandViewController.swift in Sources */,
 				495FEF9D1FD1DBD8002C3C66 /* Brand.swift in Sources */,
+				AFCB599D1FD61A8B00992D6A /* VehicleDetailViewModel.swift in Sources */,
 				AFCB59931FD60F6E00992D6A /* BrandCollectionViewCell.swift in Sources */,
 				49E5A71E1FCF2CF3002E654E /* Vehicle.swift in Sources */,
 				495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */,
@@ -688,6 +707,7 @@
 				49E5A70B1FCF265A002E654E /* Coordinator.swift in Sources */,
 				495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */,
 				AF11FF141FD22E94005F8AFF /* TransformersUtils.swift in Sources */,
+				AFCB599A1FD61A0C00992D6A /* VehicleDetailViewController.swift in Sources */,
 				AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */,
 				495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */,
 				4958A3D61FD5B2D400420B47 /* UIView+Extension.swift in Sources */,
