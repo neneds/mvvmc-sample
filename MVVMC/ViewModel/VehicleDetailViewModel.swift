@@ -15,7 +15,7 @@ protocol VehicleDetailCoordinatorDelegate : class {
 
 class VehicleDetailViewModel : BaseViewModel {
     var currentVehicle: Vehicle?
-    var coordinatorDelegate: VehicleDetailCoordinatorDelegate?
+    weak var coordinatorDelegate: VehicleDetailCoordinatorDelegate?
 
     convenience init(vehicle: Vehicle?) {
         self.init()
