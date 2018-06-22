@@ -9,18 +9,12 @@
 import Foundation
 
 extension Bundle {
-    static func loadJSONFromBundle(resourceName: String) -> Any? {
+    static func loadJSONDataFromBundle(resourceName: String) -> Data? {
         guard let url = Bundle.main.url(forResource: resourceName, withExtension: "json"),
             let data = try? Data(contentsOf: url) else {
                 return Data()
         }
-
-        do {
-            let resultJSON = try JSONSerialization.jsonObject(with: data, options: [])
-            return resultJSON
-        } catch {
-            return nil
-        }
+        return data
     }
 }
 

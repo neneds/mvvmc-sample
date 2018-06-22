@@ -34,7 +34,7 @@ class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate
         }
 
         let vehicle = viewModel?.vehicles[indexPath.row]
-        
+
         if let imageURL = vehicle?.urlImage {
             UIImage.loadImageFromURL(imageURL) { (resultImage) in
                 guard let resultImage = resultImage else {
@@ -52,6 +52,7 @@ class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel?.didSelectIndexPath(indexPath: indexPath)
     }
+
 }
 
 
@@ -68,5 +69,3 @@ extension ListViewController : ListViewModelType {
        self.view.unlockView()
     }
 }
-
-

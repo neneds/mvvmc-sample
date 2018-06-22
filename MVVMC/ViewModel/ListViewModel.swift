@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import ObjectMapper
-
 
 ///Specific methods that this viewModel should have
 protocol ListViewModelType: ViewModelType {
@@ -16,7 +14,7 @@ protocol ListViewModelType: ViewModelType {
 }
 
 ///Protocol to inform actions to coordinador
-protocol ListViewModelCoordinatorDelegate : class {
+protocol ListViewModelCoordinatorDelegate: class {
     func shouldMakeSegue(viewModel: Any?, sender:Any?)
 }
 
@@ -34,20 +32,19 @@ class ListViewModel: BaseViewModel {
         delegate?.showHUD()
         self.loadVehicles { [weak self] (result) in
             self?.delegate?.hideHUD()
-            if result != nil {
-                self?.vehicles = result!
-                self?.delegate?.reloadView()
-            }
+            guard let result = result else { return }
+            self?.vehicles = result
+            self?.delegate?.reloadView()
         }
     }
 
     ///Load data from an API
     internal func loadVehicles(completion: @escaping ([Vehicle]?) -> ()) {
-        guard let json = Bundle.loadJSONFromBundle(resourceName: "vehicles") else {
+        guard let json = Bundle.loadJSONDataFromBundle(resourceName: "vehicles") else {
             completion(nil)
             return
         }
-        guard let vehicles = Mapper<Vehicle>().mapArray(JSONObject: json) else {
+        guard let vehicles: [Vehicle] = try? [Vehicle].decode(data: json) else {
             completion(nil)
             return
         }

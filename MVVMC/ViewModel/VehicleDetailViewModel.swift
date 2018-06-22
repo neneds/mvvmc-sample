@@ -9,11 +9,11 @@
 import Foundation
 
 ///Protocol to inform actions to coordinador
-protocol VehicleDetailCoordinatorDelegate : class {
+protocol VehicleDetailCoordinatorDelegate: class {
     func didClickLike(viewModel: Any?, sender:Any?)
 }
 
-class VehicleDetailViewModel : BaseViewModel {
+class VehicleDetailViewModel: BaseViewModel {
     var currentVehicle: Vehicle?
     var coordinatorDelegate: VehicleDetailCoordinatorDelegate?
 

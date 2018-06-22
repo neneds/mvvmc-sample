@@ -7,26 +7,32 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Vehicle : Mappable {
+class Vehicle : Codable {
     var id: String?
     var name: String?
     var brand: Brand?
     var urlImage: URL?
     var vehicleDescription: String?
-    
-    
-    required init?(map: Map) {
 
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case brand = "brand"
+        case urlImage = "pictureAddress"
+        case vehicleDescription = "vehicleDescription"
     }
-    
-   func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
-        brand <- map["brand"]
-        urlImage <- (map["pictureAddress"], TransformersUtils.URLTransformer)
-        vehicleDescription <- map["vehicleDescription"]
-    }
+//
+//    required init?(map: Map) {
+//
+//    }
+//
+//   func mapping(map: Map) {
+//        id <- map["id"]
+//        name <- map["name"]
+//        brand <- map["brand"]
+//        urlImage <- (map["pictureAddress"], TransformersUtils.URLTransformer)
+//        vehicleDescription <- map["vehicleDescription"]
+//    }
 }
     
