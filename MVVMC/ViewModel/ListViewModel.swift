@@ -25,7 +25,7 @@ class ListViewModel: BaseViewModel {
         refreshVehicles()
     }
 
-    var coordinatorDelegate: ListViewModelCoordinatorDelegate?
+    weak var coordinatorDelegate: ListViewModelCoordinatorDelegate?
     var vehicles : [Vehicle] = []
 
     func refreshVehicles() {

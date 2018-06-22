@@ -16,6 +16,8 @@ class TabBarCoordinator: BaseCoordinator {
     
     let tabBarController = UITabBarController()
     var tabBarControllers = [UIViewController]()
+    private var  listCoordinator: ListCoordinator?
+    private var  brandsCoordinator: BrandCoordinator?
     
     init(window: UIWindow) {
         self.window = window
@@ -25,7 +27,8 @@ class TabBarCoordinator: BaseCoordinator {
         
         //Instantiate tabbar items coordinators
         
-        let listCoordinator = ListCoordinator(navigationController: UINavigationController())
+        listCoordinator = ListCoordinator(navigationController: UINavigationController())
+        guard let listCoordinator = listCoordinator else {return}
         listCoordinator.start { [weak self] (resultViewController) in
             guard let resultViewController = resultViewController else {
                 return
@@ -34,7 +37,8 @@ class TabBarCoordinator: BaseCoordinator {
             self?.tabBarControllers.append(resultViewController)
         }
         
-        let brandsCoordinator = BrandCoordinator(navigationController: UINavigationController())
+        brandsCoordinator = BrandCoordinator(navigationController: UINavigationController())
+        guard let brandsCoordinator = brandsCoordinator else {return}
         brandsCoordinator.start { [weak self] (resultViewController) in
             guard let resultViewController = resultViewController else {
                 return
