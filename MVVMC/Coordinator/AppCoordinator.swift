@@ -19,6 +19,6 @@ class AppCoordinator: BaseCoordinator {
     
     override func start(completion: @escaping (UIViewController?) -> ()) {
         let tabBarCoordinator = TabBarCoordinator(window: window)
-        coordinate(to: tabBarCoordinator)
+        coordinate(to: tabBarCoordinator) { (_) in }
     }
 }

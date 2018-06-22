@@ -7,14 +7,13 @@
 //
 
 import Foundation
-
 import UIKit
 
 class BrandCoordinator: BaseCoordinator {
     
     override func start(completion: @escaping (UIViewController?) -> ()) {
         let vc: BrandViewController = BrandViewController(viewModel: BrandViewModel(), nibName: BrandViewController.className, bundle: Bundle.main)
-        self.navigationController?.viewControllers.append(vc)
-        completion(self.navigationController)
+        coordinatorNavigationController?.viewControllers.append(vc)
+        completion(coordinatorNavigationController)
     }
 }

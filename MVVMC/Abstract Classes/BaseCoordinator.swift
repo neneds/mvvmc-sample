@@ -16,29 +16,27 @@ class BaseCoordinator: Coordinator {
         guard let navigationController = navigationController else {
             return
         }
-        self.navigationController = navigationController
+        self.coordinatorNavigationController = navigationController
     }
 
     private let identifier = UUID()
     private var childCoordinators = [UUID: Any]()
-    var navigationController: UINavigationController?
-    
+    var coordinatorNavigationController: UINavigationController?
+
     private func store(coordinator: BaseCoordinator) {
         childCoordinators[coordinator.identifier] = coordinator
     }
-   
+
     private func free(coordinator: BaseCoordinator) {
         childCoordinators[coordinator.identifier] = nil
     }
-    
 
-    func coordinate(to coordinator: BaseCoordinator) {
+    func coordinate(to coordinator: BaseCoordinator, completion: @escaping (UIViewController?) -> Void) {
         store(coordinator: coordinator)
-        coordinator.start { (_) in}
+        coordinator.start(completion: completion)
     }
-        
-    func start(completion: @escaping (UIViewController?) -> ()) {
-        
+
+    func start(completion: @escaping (UIViewController?) -> Void) {
     }
     
 }

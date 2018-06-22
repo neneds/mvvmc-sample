@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate, UITableViewDataSource {
+class VehicleListViewController: BaseViewController<ListViewModel>, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Car List"
+        self.title = "Electric Vehicles"
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
@@ -56,7 +56,7 @@ class ListViewController: BaseViewController<ListViewModel>, UITableViewDelegate
 }
 
 
-extension ListViewController : ListViewModelType {
+extension VehicleListViewController : ListViewModelType {
     func reloadView() {
         tableView.reloadData()
     }

@@ -14,9 +14,9 @@ class ListCoordinator: BaseCoordinator {
     override func start(completion: @escaping (UIViewController?) -> ()) {
         let viewModel = ListViewModel()
         viewModel.coordinatorDelegate = self
-        let vc : ListViewController = ListViewController(viewModel: viewModel , nibName: ListViewController.className, bundle: Bundle.main)
-        self.navigationController?.viewControllers.append(vc)
-        completion(self.navigationController)
+        let vc : VehicleListViewController = VehicleListViewController(viewModel: viewModel , nibName: VehicleListViewController.className, bundle: Bundle.main)
+        coordinatorNavigationController?.viewControllers.append(vc)
+        completion(coordinatorNavigationController)
     }
 }
 
@@ -24,11 +24,11 @@ extension ListCoordinator : ListViewModelCoordinatorDelegate {
     func shouldMakeSegue(viewModel: Any?, sender: Any?) {
         let viewModel = DetailViewModel(vehicle: sender as? Vehicle)
         let detailCoordinator = DetailCoordinator(viewModel: viewModel)
-        detailCoordinator.start { (viewController) in
+        detailCoordinator.start { [weak self] (viewController) in
             guard let viewController = viewController else {
                 return
             }
-            self.navigationController?.pushViewController(viewController, animated: true)
+            self?.coordinatorNavigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
