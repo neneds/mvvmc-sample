@@ -10,7 +10,6 @@ import Foundation
 
 class DetailViewModel: BaseViewModel {
     var currentVehicle: Vehicle?
-
     convenience init(vehicle: Vehicle?) {
         self.init()
         self.currentVehicle = vehicle

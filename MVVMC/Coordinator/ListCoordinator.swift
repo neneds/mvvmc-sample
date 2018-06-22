@@ -24,11 +24,14 @@ extension ListCoordinator : ListViewModelCoordinatorDelegate {
     func shouldMakeSegue(viewModel: Any?, sender: Any?) {
         let viewModel = DetailViewModel(vehicle: sender as? Vehicle)
         let detailCoordinator = DetailCoordinator(viewModel: viewModel)
-        detailCoordinator.start { [weak self] (viewController) in
+        self.coordinate(to: detailCoordinator) { [weak self] (viewController) in
             guard let viewController = viewController else {
                 return
             }
             self?.coordinatorNavigationController?.pushViewController(viewController, animated: true)
+        }
+        detailCoordinator.freeCoordinatorCompletion = {(coordinator: Coordinator?) -> Void in
+            self.free(coordinator: coordinator as? BaseCoordinator)
         }
     }
 }

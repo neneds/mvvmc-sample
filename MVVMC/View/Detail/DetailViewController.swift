@@ -34,4 +34,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         }
     }
 
+    deinit {
+        deinitCompletion()
+    }
 }

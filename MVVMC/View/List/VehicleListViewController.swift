@@ -55,7 +55,6 @@ class VehicleListViewController: BaseViewController<ListViewModel>, UITableViewD
 
 }
 
-
 extension VehicleListViewController : ListViewModelType {
     func reloadView() {
         tableView.reloadData()

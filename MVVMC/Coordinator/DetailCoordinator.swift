@@ -16,11 +16,15 @@ class DetailCoordinator: BaseCoordinator {
         self.init()
         self.viewModel = viewModel
     }
+    
     override func start(completion: @escaping (UIViewController?) -> ()) {
         guard let viewModel = self.viewModel else {
             return
         }
-        let vc: DetailViewController = DetailViewController(viewModel: viewModel, nibName: DetailViewController.className, bundle: Bundle.main)
-        completion(vc)
+        let viewController: DetailViewController = DetailViewController(viewModel: viewModel, nibName: DetailViewController.className, bundle: Bundle.main)
+        viewController.deinitCompletion = {() -> Void in
+            self.freeCoordinatorCompletion(self)
+        }
+        completion(viewController)
     }
 }
