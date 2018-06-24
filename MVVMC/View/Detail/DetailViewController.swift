@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: BaseViewController<DetailViewModel> {
 
+    @IBOutlet weak var btnMoreVehicles: UIButton!
     @IBOutlet weak var imgVehicle: UIImageView!
     @IBOutlet weak var lblBrandName: UILabel!
     @IBOutlet weak var lblModelName: UILabel!
@@ -25,15 +26,19 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         lblModelName.text = viewModel?.currentVehicle?.name
         txtModelDescription.text = viewModel?.currentVehicle?.vehicleDescription
         if let imageURL = viewModel?.currentVehicle?.urlImage {
-            UIImage.loadImageFromURL(imageURL) { (resultImage) in
+            UIImage.loadImageFromURL(imageURL) { [weak self] (resultImage) in
                 guard let resultImage = resultImage else {
                     return
                 }
-                self.imgVehicle.image = resultImage
+                self?.imgVehicle.image = resultImage
             }
         }
     }
-
+    
+    
+    @IBAction func actionMoreVehicles(_ sender: Any) {
+    }
+    
     deinit {
         deinitCompletion()
     }

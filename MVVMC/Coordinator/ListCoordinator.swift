@@ -12,16 +12,16 @@ import UIKit
 class ListCoordinator: BaseCoordinator {
     
     override func start(completion: @escaping (UIViewController?) -> ()) {
-        let viewModel = ListViewModel()
-        viewModel.coordinatorDelegate = self
-        let vc : VehicleListViewController = VehicleListViewController(viewModel: viewModel , nibName: VehicleListViewController.className, bundle: Bundle.main)
-        coordinatorNavigationController?.viewControllers.append(vc)
+        let viewModel = VehicleListViewModel()
+        let vehicleListViewController : VehicleListViewController = VehicleListViewController(viewModel: viewModel , nibName: VehicleListViewController.className, bundle: Bundle.main)
+        vehicleListViewController.delegate = self
+        coordinatorNavigationController?.viewControllers.append(vehicleListViewController)
         completion(coordinatorNavigationController)
     }
 }
 
-extension ListCoordinator : ListViewModelCoordinatorDelegate {
-    func shouldMakeSegue(viewModel: Any?, sender: Any?) {
+extension ListCoordinator : VehicleListViewControllerDelegate {
+    func shouldMakeSegue(viewController: VehicleListViewController?, sender: Any?) {
         let viewModel = DetailViewModel(vehicle: sender as? Vehicle)
         let detailCoordinator = DetailCoordinator(viewModel: viewModel)
         self.coordinate(to: detailCoordinator) { [weak self] (viewController) in

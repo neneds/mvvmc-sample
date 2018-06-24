@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4958A3D41FD5A57100420B47 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A3D31FD5A57100420B47 /* DetailViewModel.swift */; };
-		4958A3D61FD5B2D400420B47 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A3D51FD5B2D400420B47 /* UIView+Extension.swift */; };
+		4958A3D61FD5B2D400420B47 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A3D51FD5B2D400420B47 /* UIViewController+Extension.swift */; };
 		495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF841FD1AE57002C3C66 /* BaseCoordinator.swift */; };
 		495FEF8A1FD1B2DF002C3C66 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */; };
 		495FEF8C1FD1B8F4002C3C66 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */; };
@@ -34,11 +34,16 @@
 		49E5A7171FCF2A42002E654E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A7151FCF2A42002E654E /* DetailViewController.swift */; };
 		49E5A7181FCF2A42002E654E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E5A7161FCF2A42002E654E /* DetailViewController.xib */; };
 		49E5A71A1FCF2AAD002E654E /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A7191FCF2AAD002E654E /* ViewModelType.swift */; };
-		49E5A71C1FCF2C11002E654E /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A71B1FCF2C11002E654E /* ListViewModel.swift */; };
+		49E5A71C1FCF2C11002E654E /* VehicleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A71B1FCF2C11002E654E /* VehicleListViewModel.swift */; };
 		49E5A71E1FCF2CF3002E654E /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A71D1FCF2CF3002E654E /* Vehicle.swift */; };
 		49E5A7201FCF30D9002E654E /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A71F1FCF30D9002E654E /* ListCoordinator.swift */; };
 		AF11FF101FD22B27005F8AFF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF0F1FD22B27005F8AFF /* BaseViewModel.swift */; };
 		AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */; };
+		AF22866620E0596B001BEE71 /* fordVehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = AF22866520E0596B001BEE71 /* fordVehicles.json */; };
+		AF22866B20E05C63001BEE71 /* toyotaVehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = AF22866720E05C63001BEE71 /* toyotaVehicles.json */; };
+		AF22866C20E05C63001BEE71 /* teslaVehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = AF22866820E05C63001BEE71 /* teslaVehicles.json */; };
+		AF22866D20E05C63001BEE71 /* fordVehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = AF22866920E05C63001BEE71 /* fordVehicles.json */; };
+		AF22866E20E05C63001BEE71 /* kiaVehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = AF22866A20E05C63001BEE71 /* kiaVehicles.json */; };
 		AF313D4320DC81030095D959 /* Codable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF313D4220DC81030095D959 /* Codable+Extensions.swift */; };
 		AF8779431FD22363008499AE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8779421FD22363008499AE /* Bundle+Extension.swift */; };
 		AFCB59901FD60C8700992D6A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB598F1FD60C8700992D6A /* DetailCoordinator.swift */; };
@@ -69,7 +74,7 @@
 
 /* Begin PBXFileReference section */
 		4958A3D31FD5A57100420B47 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		4958A3D51FD5B2D400420B47 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4958A3D51FD5B2D400420B47 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		495FEF841FD1AE57002C3C66 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		495FEF891FD1B2DF002C3C66 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		495FEF8B1FD1B8F4002C3C66 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -101,11 +106,16 @@
 		49E5A7151FCF2A42002E654E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		49E5A7161FCF2A42002E654E /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		49E5A7191FCF2AAD002E654E /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
-		49E5A71B1FCF2C11002E654E /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		49E5A71B1FCF2C11002E654E /* VehicleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListViewModel.swift; sourceTree = "<group>"; };
 		49E5A71D1FCF2CF3002E654E /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		49E5A71F1FCF30D9002E654E /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
 		AF11FF0F1FD22B27005F8AFF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		AF22866520E0596B001BEE71 /* fordVehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fordVehicles.json; sourceTree = "<group>"; };
+		AF22866720E05C63001BEE71 /* toyotaVehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = toyotaVehicles.json; sourceTree = "<group>"; };
+		AF22866820E05C63001BEE71 /* teslaVehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teslaVehicles.json; sourceTree = "<group>"; };
+		AF22866920E05C63001BEE71 /* fordVehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = fordVehicles.json; path = ../../../../../../Downloads/fordVehicles.json; sourceTree = "<group>"; };
+		AF22866A20E05C63001BEE71 /* kiaVehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kiaVehicles.json; sourceTree = "<group>"; };
 		AF313D4220DC81030095D959 /* Codable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extensions.swift"; sourceTree = "<group>"; };
 		AF8779421FD22363008499AE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		AFCB598F1FD60C8700992D6A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
@@ -157,7 +167,7 @@
 				495FEF911FD1BFCB002C3C66 /* NSObject+Extensions.swift */,
 				AF8779421FD22363008499AE /* Bundle+Extension.swift */,
 				AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */,
-				4958A3D51FD5B2D400420B47 /* UIView+Extension.swift */,
+				4958A3D51FD5B2D400420B47 /* UIViewController+Extension.swift */,
 				AF313D4220DC81030095D959 /* Codable+Extensions.swift */,
 			);
 			path = Extensions;
@@ -186,6 +196,11 @@
 		495FEFA31FD1E4EC002C3C66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AF22866520E0596B001BEE71 /* fordVehicles.json */,
+				AF22866920E05C63001BEE71 /* fordVehicles.json */,
+				AF22866A20E05C63001BEE71 /* kiaVehicles.json */,
+				AF22866820E05C63001BEE71 /* teslaVehicles.json */,
+				AF22866720E05C63001BEE71 /* toyotaVehicles.json */,
 				AFCB59951FD6151000992D6A /* brands.json */,
 				495FEFA41FD1E505002C3C66 /* vehicles.json */,
 			);
@@ -273,7 +288,7 @@
 				AFCB59971FD619EB00992D6A /* VehicleDetail */,
 				495FEF931FD1C8B5002C3C66 /* Brands */,
 				49E5A7141FCF2A2F002E654E /* Detail */,
-				49E5A70F1FCF2A0E002E654E /* List */,
+				49E5A70F1FCF2A0E002E654E /* Vehicle List */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,7 +296,7 @@
 		49E5A7081FCF25D1002E654E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				49E5A71B1FCF2C11002E654E /* ListViewModel.swift */,
+				49E5A71B1FCF2C11002E654E /* VehicleListViewModel.swift */,
 				495FEF9A1FD1CA2F002C3C66 /* BrandViewModel.swift */,
 				AF11FF0F1FD22B27005F8AFF /* BaseViewModel.swift */,
 				4958A3D31FD5A57100420B47 /* DetailViewModel.swift */,
@@ -308,13 +323,13 @@
 			path = "Abstract Classes";
 			sourceTree = "<group>";
 		};
-		49E5A70F1FCF2A0E002E654E /* List */ = {
+		49E5A70F1FCF2A0E002E654E /* Vehicle List */ = {
 			isa = PBXGroup;
 			children = (
 				49E5A7101FCF2A2A002E654E /* VehicleListViewController.swift */,
 				49E5A7111FCF2A2A002E654E /* VehicleListViewController.xib */,
 			);
-			path = List;
+			path = "Vehicle List";
 			sourceTree = "<group>";
 		};
 		49E5A7141FCF2A2F002E654E /* Detail */ = {
@@ -454,17 +469,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF22866E20E05C63001BEE71 /* kiaVehicles.json in Resources */,
 				495FEFA51FD1E505002C3C66 /* vehicles.json in Resources */,
 				495FEF971FD1C8D6002C3C66 /* BrandViewController.xib in Resources */,
 				AFCB59941FD60F6E00992D6A /* BrandCollectionViewCell.xib in Resources */,
+				AF22866620E0596B001BEE71 /* fordVehicles.json in Resources */,
 				AFCB599B1FD61A0C00992D6A /* VehicleDetailViewController.xib in Resources */,
 				49E5A6E21FCF2554002E654E /* LaunchScreen.storyboard in Resources */,
 				49E5A6DF1FCF2554002E654E /* Assets.xcassets in Resources */,
 				AFCB59961FD6151000992D6A /* brands.json in Resources */,
+				AF22866C20E05C63001BEE71 /* teslaVehicles.json in Resources */,
+				AF22866D20E05C63001BEE71 /* fordVehicles.json in Resources */,
 				49E5A7181FCF2A42002E654E /* DetailViewController.xib in Resources */,
 				49E5A7131FCF2A2A002E654E /* VehicleListViewController.xib in Resources */,
 				495FEFA21FD1DD1A002C3C66 /* VehicleTableViewCell.xib in Resources */,
 				49E5A6DD1FCF2554002E654E /* Main.storyboard in Resources */,
+				AF22866B20E05C63001BEE71 /* toyotaVehicles.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,11 +530,11 @@
 				AFCB599A1FD61A0C00992D6A /* VehicleDetailViewController.swift in Sources */,
 				AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */,
 				495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */,
-				4958A3D61FD5B2D400420B47 /* UIView+Extension.swift in Sources */,
+				4958A3D61FD5B2D400420B47 /* UIViewController+Extension.swift in Sources */,
 				495FEF991FD1C9D1002C3C66 /* BrandCoordinator.swift in Sources */,
 				AF11FF101FD22B27005F8AFF /* BaseViewModel.swift in Sources */,
 				AF313D4320DC81030095D959 /* Codable+Extensions.swift in Sources */,
-				49E5A71C1FCF2C11002E654E /* ListViewModel.swift in Sources */,
+				49E5A71C1FCF2C11002E654E /* VehicleListViewModel.swift in Sources */,
 				49E5A7201FCF30D9002E654E /* ListCoordinator.swift in Sources */,
 				49E5A71A1FCF2AAD002E654E /* ViewModelType.swift in Sources */,
 			);

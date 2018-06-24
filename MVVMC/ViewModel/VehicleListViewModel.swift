@@ -12,21 +12,13 @@ import Foundation
 protocol ListViewModelType: ViewModelType {
 
 }
-
-///Protocol to inform actions to coordinador
-protocol ListViewModelCoordinatorDelegate: class {
-    func shouldMakeSegue(viewModel: Any?, sender:Any?)
-}
-
-class ListViewModel: BaseViewModel {
+class VehicleListViewModel: BaseViewModel {
     
     override init() {
         super.init()
-        refreshVehicles()
     }
 
-    weak var coordinatorDelegate: ListViewModelCoordinatorDelegate?
-    var vehicles : [Vehicle] = []
+    var vehicles: [Vehicle] = []
 
     func refreshVehicles() {
         delegate?.showHUD()
@@ -39,7 +31,7 @@ class ListViewModel: BaseViewModel {
     }
 
     ///Load data from an API
-    internal func loadVehicles(completion: @escaping ([Vehicle]?) -> ()) {
+    private func loadVehicles(completion: @escaping ([Vehicle]?) -> ()) {
         guard let json = Bundle.loadJSONDataFromBundle(resourceName: "vehicles") else {
             completion(nil)
             return
@@ -50,11 +42,5 @@ class ListViewModel: BaseViewModel {
         }
 
         completion(vehicles)
-    }
-
-    ///React to tableview selection o view
-    func didSelectIndexPath(indexPath: IndexPath) {
-        let vehicle = self.vehicles[indexPath.row]
-        self.coordinatorDelegate?.shouldMakeSegue(viewModel: self, sender: vehicle)
     }
 }

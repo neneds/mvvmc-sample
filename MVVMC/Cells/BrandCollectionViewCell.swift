@@ -12,13 +12,11 @@ class BrandCollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier = "BrandCollectionViewCell"
 
+    @IBOutlet weak var btnBrandVehicles: UIButton!
     @IBOutlet weak var imgBrand: UIImageView!
     @IBOutlet weak var lblBrandName: UILabel!
     @IBOutlet weak var lblBrandCompleteName: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
+    @IBAction func actionMoreVehicles(_ sender: Any) {
+    }
 }

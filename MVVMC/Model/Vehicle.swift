@@ -22,17 +22,5 @@ class Vehicle : Codable {
         case urlImage = "pictureAddress"
         case vehicleDescription = "vehicleDescription"
     }
-//
-//    required init?(map: Map) {
-//
-//    }
-//
-//   func mapping(map: Map) {
-//        id <- map["id"]
-//        name <- map["name"]
-//        brand <- map["brand"]
-//        urlImage <- (map["pictureAddress"], TransformersUtils.URLTransformer)
-//        vehicleDescription <- map["vehicleDescription"]
-//    }
 }
     

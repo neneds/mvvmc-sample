@@ -1,0 +1,12 @@
+[{
+    "id": "013",
+    "vehicleDescription": "With every inch thoughtfully crafted, the Optima Hybrid’s efficient nature doesn’t stop at its hybrid powertrain. Its seamlessly integrated active air flap and smooth, aerodynamic shape helps streamline performance, proving that design can be both effective and expressive.",
+    "name": "Optima Hybrid",
+    "brand": {
+        "id": "002",
+        "name": "Kia",
+        "brandDescription": "Kia Motors",
+        "brandImageURL": "https://3dexport.com/items/2017/06/30/458555/153377/kia_logo_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_1737003_o.jpg"
+    },
+    "pictureAddress": "https://www.kia.com/us/k3/content/media/mediabin/vehicle_experience/stories/CMS/vehicles/optima-hybrid/2017/experience/exterior/background_optima_hybrid_2017_exterior_exclusive_styling_front--kia-1920x-jpg.jpg"
+}]

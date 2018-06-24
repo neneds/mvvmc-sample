@@ -33,7 +33,7 @@ class TabBarCoordinator: BaseCoordinator {
             guard let resultViewController = resultViewController else {
                 return
             }
-            resultViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+            resultViewController.tabBarItem = UITabBarItem(title: "Vehicles", image: #imageLiteral(resourceName: "ev"), tag: 0)
             self?.tabBarControllers.append(resultViewController)
         }
         
@@ -43,7 +43,7 @@ class TabBarCoordinator: BaseCoordinator {
             guard let resultViewController = resultViewController else {
                 return
             }
-            resultViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+            resultViewController.tabBarItem = UITabBarItem(title: "Brands", image: #imageLiteral(resourceName: "factory"), tag: 1)
             self?.tabBarControllers.append(resultViewController)
         }
         

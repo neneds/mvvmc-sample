@@ -28,12 +28,12 @@ class BrandViewController: BaseViewController<BrandViewModel>, UICollectionViewD
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.clear
         let layout = UICollectionViewFlowLayout.init()
-        layout.scrollDirection = .horizontal
-        let cellSize = CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+        layout.scrollDirection = .vertical
+        let cellSize = CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height / 2)
         layout.itemSize = cellSize
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = -1
-        collectionView.contentInset = UIEdgeInsets(top:0, left: 15, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top:0, left: 0, bottom: 0, right: 0)
         collectionView.collectionViewLayout = layout
 
     }
@@ -66,9 +66,7 @@ class BrandViewController: BaseViewController<BrandViewModel>, UICollectionViewD
                 cell.imgBrand.image = resultImage
             }
         }
-
         return cell
-
     }
 
 }
@@ -81,11 +79,11 @@ extension BrandViewController : BrandViewModelType {
     }
 
     func showHUD() {
-        self.view.lockView()
+        self.showActivity()
     }
 
     func hideHUD() {
-        self.view.unlockView()
+        self.hideActivity()
     }
 }
 
