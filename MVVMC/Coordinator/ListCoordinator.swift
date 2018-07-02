@@ -24,6 +24,7 @@ extension ListCoordinator : VehicleListViewControllerDelegate {
     func shouldMakeSegue(viewController: VehicleListViewController?, sender: Any?) {
         let viewModel = DetailViewModel(vehicle: sender as? Vehicle)
         let detailCoordinator = DetailCoordinator(viewModel: viewModel)
+        detailCoordinator.coordinatorNavigationController = coordinatorNavigationController
         self.coordinate(to: detailCoordinator) { [weak self] (viewController) in
             guard let viewController = viewController else {
                 return

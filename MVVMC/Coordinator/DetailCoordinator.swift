@@ -22,9 +22,21 @@ class DetailCoordinator: BaseCoordinator {
             return
         }
         let viewController: DetailViewController = DetailViewController(viewModel: viewModel, nibName: DetailViewController.className, bundle: Bundle.main)
+        viewController.delegate = self
         viewController.deinitCompletion = {() -> Void in
             self.freeCoordinatorCompletion(self)
         }
         completion(viewController)
+    }
+}
+
+extension DetailCoordinator: DetailViewControllerDelegate {
+    func shouldPresentBrandVehicles(viewController: DetailViewController?, sender: Any?) {
+        guard let brand = sender as? Brand else { return }
+        let brandVehiclesCoordinator = BrandVehiclesCoordinator(brand: brand)
+        self.coordinate(to: brandVehiclesCoordinator) { (viewController) in
+            guard let viewController = viewController else { return }
+            self.coordinatorNavigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }

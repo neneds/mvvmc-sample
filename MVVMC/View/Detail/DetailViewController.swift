@@ -8,6 +8,12 @@
 
 import UIKit
 
+///Protocol to inform actions to coordinador
+protocol DetailViewControllerDelegate: class {
+    func shouldPresentBrandVehicles(viewController: DetailViewController?, sender:Any?)
+}
+
+
 class DetailViewController: BaseViewController<DetailViewModel> {
 
     @IBOutlet weak var btnMoreVehicles: UIButton!
@@ -15,6 +21,8 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     @IBOutlet weak var lblBrandName: UILabel!
     @IBOutlet weak var lblModelName: UILabel!
     @IBOutlet weak var txtModelDescription: UITextView!
+
+    weak var delegate: DetailViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +45,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     
     
     @IBAction func actionMoreVehicles(_ sender: Any) {
+        delegate?.shouldPresentBrandVehicles(viewController: self, sender: viewModel?.currentVehicle?.brand)
     }
     
     deinit {
