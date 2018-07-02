@@ -26,6 +26,7 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
         super.viewDidLoad()
         setupTableView()
         viewModel?.refreshVehicles(brandId: viewModel?.currentBrand?.id)
+        setupTitleView()
     }
 
     private func setupTableView() {
@@ -33,6 +34,18 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
         self.tableView.addSubview(self.refreshControl)
+    }
+
+    private func setupTitleView() {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
+        viewModel?.loadBrandImage(completion: { (resultImage) in
+            DispatchQueue.main.async {
+                guard let image = resultImage else { return }
+                imageView.image = image
+            }
+        })
     }
 
     @objc private func reloadList(_ refreshControl: UIRefreshControl) {

@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import UIKit
 
 ///Specific methods that this viewModel should have
 protocol BrandVehiclesViewModelType: ViewModelType {
@@ -39,9 +40,9 @@ class BrandVehiclesViewModel: BaseViewModel {
     }
 
     ///Load data from an API
-    private func loadBrandVehicles(brandId: String?,completion: @escaping ([Vehicle]?) -> ()) {
+    private func loadBrandVehicles(brandId: String?, completion: @escaping ([Vehicle]?) -> ()) {
         guard let brandId = brandId else {
-             completion(nil)
+            completion(nil)
             return
         }
         
@@ -68,5 +69,13 @@ class BrandVehiclesViewModel: BaseViewModel {
         }
 
         completion(vehicles)
+    }
+
+    func loadBrandImage(completion: @escaping (_ image: UIImage?) -> ()) {
+        if let imageURL = currentBrand?.brandImageURL {
+            UIImage.loadImageFromURL(imageURL) { (resultImage) in
+                completion(resultImage)
+            }
+        }
     }
 }
