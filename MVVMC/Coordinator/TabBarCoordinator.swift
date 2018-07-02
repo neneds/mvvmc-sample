@@ -26,8 +26,8 @@ class TabBarCoordinator: BaseCoordinator {
     override func start(completion: @escaping (UIViewController?) -> ()) {
         
         //Instantiate tabbar items coordinators
-        
-        listCoordinator = ListCoordinator(navigationController: UINavigationController())
+        let nav1 = UINavigationController()
+        listCoordinator = ListCoordinator(navigationController: nav1)
         guard let listCoordinator = listCoordinator else {return}
         listCoordinator.start { [weak self] (resultViewController) in
             guard let resultViewController = resultViewController else {
@@ -36,8 +36,9 @@ class TabBarCoordinator: BaseCoordinator {
             resultViewController.tabBarItem = UITabBarItem(title: "Vehicles", image: #imageLiteral(resourceName: "ev"), tag: 0)
             self?.tabBarControllers.append(resultViewController)
         }
-        
-        brandsCoordinator = BrandCoordinator(navigationController: UINavigationController())
+
+        let nav2 = UINavigationController()
+        brandsCoordinator = BrandCoordinator(navigationController: nav2)
         guard let brandsCoordinator = brandsCoordinator else {return}
         brandsCoordinator.start { [weak self] (resultViewController) in
             guard let resultViewController = resultViewController else {

@@ -9,11 +9,15 @@
 
 import UIKit
 
+protocol BaseViewControllerDelegate: class {
+    func willDeallocate(viewController: BaseViewController<BaseViewModel>?)
+}
+
 class BaseViewController<T: BaseViewModel>: UIViewController {
     
     private(set) var viewModel: T?
-    var deinitCompletion: (() -> Void)!
-    
+    weak var baseViewControllerDelegate:BaseViewControllerDelegate?
+
     init(viewModel: T, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
@@ -25,4 +29,8 @@ class BaseViewController<T: BaseViewModel>: UIViewController {
     }
     
     func configure(viewModel: T) {}
+
+    deinit {
+        baseViewControllerDelegate?.willDeallocate(viewController: self as? BaseViewController<BaseViewModel>)
+    }
 }

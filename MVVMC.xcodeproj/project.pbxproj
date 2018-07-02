@@ -44,6 +44,7 @@
 		AF22866C20E05C63001BEE71 /* teslaVehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = AF22866820E05C63001BEE71 /* teslaVehicles.json */; };
 		AF22866E20E05C63001BEE71 /* kiaVehicles.json in Resources */ = {isa = PBXBuildFile; fileRef = AF22866A20E05C63001BEE71 /* kiaVehicles.json */; };
 		AF313D4320DC81030095D959 /* Codable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF313D4220DC81030095D959 /* Codable+Extensions.swift */; };
+		AF454C0B20EAC54D0078F761 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF454C0A20EAC54D0078F761 /* Array+Extensions.swift */; };
 		AF8779431FD22363008499AE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8779421FD22363008499AE /* Bundle+Extension.swift */; };
 		AFA7085420EA8ACC00AC51B0 /* BrandVehiclesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA7085320EA8ACC00AC51B0 /* BrandVehiclesViewModel.swift */; };
 		AFA7085820EA8CCE00AC51B0 /* BrandVehiclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA7085620EA8CCE00AC51B0 /* BrandVehiclesViewController.swift */; };
@@ -119,6 +120,7 @@
 		AF22866820E05C63001BEE71 /* teslaVehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teslaVehicles.json; sourceTree = "<group>"; };
 		AF22866A20E05C63001BEE71 /* kiaVehicles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kiaVehicles.json; sourceTree = "<group>"; };
 		AF313D4220DC81030095D959 /* Codable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extensions.swift"; sourceTree = "<group>"; };
+		AF454C0A20EAC54D0078F761 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		AF8779421FD22363008499AE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		AFA7085320EA8ACC00AC51B0 /* BrandVehiclesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandVehiclesViewModel.swift; sourceTree = "<group>"; };
 		AFA7085620EA8CCE00AC51B0 /* BrandVehiclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandVehiclesViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				AF11FF111FD22E1B005F8AFF /* UIImage+Extensions.swift */,
 				4958A3D51FD5B2D400420B47 /* UIViewController+Extension.swift */,
 				AF313D4220DC81030095D959 /* Codable+Extensions.swift */,
+				AF454C0A20EAC54D0078F761 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				49E5A70B1FCF265A002E654E /* Coordinator.swift in Sources */,
 				495FEF921FD1BFCB002C3C66 /* NSObject+Extensions.swift in Sources */,
 				AFCB599A1FD61A0C00992D6A /* VehicleDetailViewController.swift in Sources */,
+				AF454C0B20EAC54D0078F761 /* Array+Extensions.swift in Sources */,
 				AF11FF121FD22E1B005F8AFF /* UIImage+Extensions.swift in Sources */,
 				495FEF851FD1AE57002C3C66 /* BaseCoordinator.swift in Sources */,
 				4958A3D61FD5B2D400420B47 /* UIViewController+Extension.swift in Sources */,

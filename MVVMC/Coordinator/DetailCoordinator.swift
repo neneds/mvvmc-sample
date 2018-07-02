@@ -11,22 +11,24 @@ import UIKit
 
 class DetailCoordinator: BaseCoordinator {
 
-    var viewModel: DetailViewModel?
-    convenience init(viewModel: DetailViewModel) {
+    private(set) var vehicle: Vehicle?
+    convenience init(vehicle: Vehicle?) {
         self.init()
-        self.viewModel = viewModel
+        self.vehicle = vehicle
     }
     
     override func start(completion: @escaping (UIViewController?) -> ()) {
-        guard let viewModel = self.viewModel else {
-            return
-        }
+        let viewModel = DetailViewModel(vehicle: vehicle)
         let viewController: DetailViewController = DetailViewController(viewModel: viewModel, nibName: DetailViewController.className, bundle: Bundle.main)
         viewController.delegate = self
-        viewController.deinitCompletion = {() -> Void in
-            self.freeCoordinatorCompletion(self)
-        }
+        viewController.baseViewControllerDelegate = self
         completion(viewController)
+    }
+}
+
+extension DetailCoordinator: BaseViewControllerDelegate {
+    func willDeallocate(viewController: BaseViewController<BaseViewModel>?) {
+        self.freeCoordinatorCompletion?(self)
     }
 }
 
@@ -34,9 +36,13 @@ extension DetailCoordinator: DetailViewControllerDelegate {
     func shouldPresentBrandVehicles(viewController: DetailViewController?, sender: Any?) {
         guard let brand = sender as? Brand else { return }
         let brandVehiclesCoordinator = BrandVehiclesCoordinator(brand: brand)
+        brandVehiclesCoordinator.coordinatorNavigationController = coordinatorNavigationController
         self.coordinate(to: brandVehiclesCoordinator) { (viewController) in
-            guard let viewController = viewController else { return }
-            self.coordinatorNavigationController?.pushViewController(viewController, animated: true)
+            guard let viewController = viewController as? BrandVehiclesViewController else { return }
+            brandVehiclesCoordinator.coordinatorNavigationController?.pushViewController(viewController, animated: true)
+        }
+        brandVehiclesCoordinator.freeCoordinatorCompletion = {(coordinator: Coordinator?) -> Void in
+            self.free(coordinator: coordinator as? BaseCoordinator)
         }
     }
 }

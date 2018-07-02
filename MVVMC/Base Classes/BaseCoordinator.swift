@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BaseCoordinator: Coordinator {
+class BaseCoordinator: Coordinator, Equatable {
 
     convenience init(navigationController: UINavigationController?) {
         self.init()
@@ -20,18 +20,19 @@ class BaseCoordinator: Coordinator {
     }
     
     private let identifier = UUID()
-    var childCoordinators = [UUID: Any]()
-    var coordinatorNavigationController: UINavigationController?
-    var freeCoordinatorCompletion: ((Coordinator?) -> Void)!
+    var childCoordinators: [BaseCoordinator] = []
+    weak var coordinatorNavigationController: UINavigationController?
+    var freeCoordinatorCompletion: ((Coordinator?) -> Void)?
 
     private func store(coordinator: BaseCoordinator?) {
         guard let coordinator = coordinator else { return }
-        childCoordinators[coordinator.identifier] = coordinator
+        childCoordinators.append(coordinator)
     }
 
     func free(coordinator: BaseCoordinator?) {
         guard let coordinator = coordinator else { return }
-        childCoordinators[coordinator.identifier] = nil
+        coordinator.coordinatorNavigationController = nil
+        childCoordinators.remove(object: coordinator)
     }
 
     func coordinate(to coordinator: BaseCoordinator?, completion: @escaping (UIViewController?) -> Void) {
@@ -41,6 +42,10 @@ class BaseCoordinator: Coordinator {
     }
 
     func start(completion: @escaping (UIViewController?) -> Void) {
+    }
+
+    static func == (lhs: BaseCoordinator, rhs: BaseCoordinator) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
     
 }

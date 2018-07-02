@@ -23,9 +23,13 @@ extension BrandCoordinator: BrandViewControllerDelegate {
     func shouldPresentBrandVehicles(view: BrandViewController, sender: Any?) {
         guard let brand = sender as? Brand else { return }
         let brandVehiclesCoordinator = BrandVehiclesCoordinator(brand: brand)
+        brandVehiclesCoordinator.coordinatorNavigationController = coordinatorNavigationController
         self.coordinate(to: brandVehiclesCoordinator) { (viewController) in
-            guard let viewController = viewController else { return }
-            self.coordinatorNavigationController?.pushViewController(viewController, animated: true)
+            guard let viewController = viewController as? BrandVehiclesViewController else { return }
+            brandVehiclesCoordinator.coordinatorNavigationController?.pushViewController(viewController, animated: true)
+        }
+        brandVehiclesCoordinator.freeCoordinatorCompletion = {(coordinator: Coordinator?) -> Void in
+            self.free(coordinator: coordinator as? BaseCoordinator)
         }
     }
 }

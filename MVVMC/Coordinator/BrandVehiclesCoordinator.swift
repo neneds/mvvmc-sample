@@ -12,14 +12,22 @@ import UIKit
 class BrandVehiclesCoordinator: BaseCoordinator {
     private(set) var currentBrand: Brand?
 
+
     convenience init(brand: Brand) {
         self.init()
         self.currentBrand = brand
     }
 
     override func start(completion: @escaping (UIViewController?) -> ()) {
-        let brandVehiclesViewController: BrandVehiclesViewController = BrandVehiclesViewController(viewModel: BrandVehiclesViewModel(brand: currentBrand), nibName: BrandVehiclesViewController.className, bundle: Bundle.main)
+         let brandVehiclesViewController: BrandVehiclesViewController? = BrandVehiclesViewController(viewModel: BrandVehiclesViewModel(brand: currentBrand), nibName: BrandVehiclesViewController.className, bundle: Bundle.main)
+        brandVehiclesViewController?.baseViewControllerDelegate = self
         completion(brandVehiclesViewController)
+    }
+}
+
+extension BrandVehiclesCoordinator: BaseViewControllerDelegate {
+    func willDeallocate(viewController: BaseViewController<BaseViewModel>?) {
+        self.freeCoordinatorCompletion?(self)
     }
 }
 

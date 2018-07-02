@@ -47,8 +47,4 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     @IBAction func actionMoreVehicles(_ sender: Any) {
         delegate?.shouldPresentBrandVehicles(viewController: self, sender: viewModel?.currentVehicle?.brand)
     }
-    
-    deinit {
-        deinitCompletion()
-    }
 }
