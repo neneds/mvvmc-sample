@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol BrandViewControllerDelegate: class {
+    func shouldPresentBrandVehicles(view: BrandViewController, sender: Any?)
+}
+
 class BrandViewController: BaseViewController<BrandViewModel>, UICollectionViewDelegate, UICollectionViewDataSource {
+
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    weak var delegate: BrandViewControllerDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Brands"
@@ -57,7 +63,7 @@ class BrandViewController: BaseViewController<BrandViewModel>, UICollectionViewD
         let brand = viewModel?.brands[indexPath.row]
         cell.lblBrandName.text = brand?.name
         cell.lblBrandCompleteName.text = brand?.brandDescription
-
+        cell.delegate = self
         if let imageURL = brand?.brandImageURL {
             UIImage.loadImageFromURL(imageURL) { (resultImage) in
                 guard let resultImage = resultImage else {
@@ -71,9 +77,17 @@ class BrandViewController: BaseViewController<BrandViewModel>, UICollectionViewD
 
 }
 
+extension BrandViewController: BrandCollectionViewCellDelegate {
+    func didPressMoreVehicles(cell: BrandCollectionViewCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        let brand = viewModel?.brands[indexPath.row]
+        delegate?.shouldPresentBrandVehicles(view: self, sender: brand)
+    }
+}
 
 
-extension BrandViewController : BrandViewModelType {
+
+extension BrandViewController: BrandViewModelType {
     func reloadView() {
         collectionView.reloadData()
     }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol BrandCollectionViewCellDelegate: class {
+    func didPressMoreVehicles(cell: BrandCollectionViewCell)
+}
+
 class BrandCollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier = "BrandCollectionViewCell"
@@ -17,6 +21,9 @@ class BrandCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblBrandName: UILabel!
     @IBOutlet weak var lblBrandCompleteName: UILabel!
 
+    weak var delegate: BrandCollectionViewCellDelegate?
+
     @IBAction func actionMoreVehicles(_ sender: Any) {
+        delegate?.didPressMoreVehicles(cell: self)
     }
 }

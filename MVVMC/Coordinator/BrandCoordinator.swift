@@ -12,8 +12,20 @@ import UIKit
 class BrandCoordinator: BaseCoordinator {
     
     override func start(completion: @escaping (UIViewController?) -> ()) {
-        let vc: BrandViewController = BrandViewController(viewModel: BrandViewModel(), nibName: BrandViewController.className, bundle: Bundle.main)
-        coordinatorNavigationController?.viewControllers.append(vc)
+        let brandViewController: BrandViewController = BrandViewController(viewModel: BrandViewModel(), nibName: BrandViewController.className, bundle: Bundle.main)
+        brandViewController.delegate = self
+        coordinatorNavigationController?.viewControllers.append(brandViewController)
         completion(coordinatorNavigationController)
+    }
+}
+
+extension BrandCoordinator: BrandViewControllerDelegate {
+    func shouldPresentBrandVehicles(view: BrandViewController, sender: Any?) {
+        guard let brand = sender as? Brand else { return }
+        let brandVehiclesCoordinator = BrandVehiclesCoordinator(brand: brand)
+        self.coordinate(to: brandVehiclesCoordinator) { (viewController) in
+            guard let viewController = viewController else { return }
+            self.coordinatorNavigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
