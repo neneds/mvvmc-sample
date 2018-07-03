@@ -1,0 +1,12 @@
+[{
+    "id": "012",
+    "vehicleDescription": "Model S is our flagship, premium sedan with more range, acceleration, displays and customization options. It’s the safest car in its class with unlimited Supercharging for the duration of ownership when referred by an owner.",
+    "name": "Model S",
+    "brand": {
+        "id": "001",
+        "name": "Tesla",
+        "brandDescription": "Tesla Motors",
+        "brandImageURL": "https://www.logobee.com/uploads/tesla-logo.png"
+    },
+    "pictureAddress": "http://s2.glbimg.com/oIQymczNjcPd9w79BLqMdOBauso=/620x400/e.glbimg.com/og/ed/f/original/2016/04/13/2016-tesla-model-s-update_3.jpg"
+}]

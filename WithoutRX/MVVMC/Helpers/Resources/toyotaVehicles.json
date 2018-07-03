@@ -1,0 +1,12 @@
+[{
+    "id": "014",
+    "vehicleDescription": "Electric vehicles are a promising option for use in urban areas. Toyota offers ideal options for a range of different usage scenarios.",
+    "name": "iQ EV",
+    "brand": {
+        "id": "003",
+        "name": "Toyota",
+        "brandDescription": "Toyota Motor Corporation",
+        "brandImageURL": "http://pluspng.com/img-png/toyota-logo-vector-png-toyota-logo-format-ai-300.png"
+    },
+    "pictureAddress": "http://www.toyota-global.com/innovation/environmental_technology/electric_vehicle/images/sec2_tit.png"
+}]

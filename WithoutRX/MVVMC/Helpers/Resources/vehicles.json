@@ -1,0 +1,50 @@
+ [
+  {
+  "id": "001",
+  "vehicleDescription": "Touted as the affordable electric sports sedan, the Model 3 is Tesla’s eco-friendly gift to the motoring masses. Base rear-wheel-drive cars should travel about 215 miles on a single charge; all-wheel drive will be offered, and larger batteries offering longer ranges are expected. The Model 3 looks to be fast, too: Tesla says it can go from zero to 60 mph in 5.6 seconds. Tesla’s Autopilot self-driving feature will be an option. While full details are scarce, prices should start around $35,000.\n",
+  "name": "Model 3",
+  "brand": {
+  "id": "001",
+  "name": "Tesla",
+  "brandDescription": "Tesla Motors",
+  "brandImageURL": "https://www.logobee.com/uploads/tesla-logo.png"
+  },
+  "pictureAddress": "https://buyersguide.caranddriver.com/media/assets/submodel/7637.jpg"
+  },
+  {
+  "id": "002",
+  "vehicleDescription": "The funky Soul EV appeals to the eco-friendly, keeps the utility of the gas-powered Soul, and adds a host of tech features to please even the geekiest hamsters. The 109-hp motor, lithium-ion battery, and regenerative braking yielded 91 miles of range and 91 MPGe in our testing. Charging time on a 240-volt system is less than 5 hours. Upscale features such as heated and cooled leather front seats are optional. Currently the Soul EV is sold in a total of ten states, so check availability.",
+  "name": "Soul EV",
+  "brand": {
+  "id": "002",
+  "name": "Kia",
+  "brandDescription": "Kia Motors",
+  "brandImageURL": "https://3dexport.com/items/2017/06/30/458555/153377/kia_logo_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_1737003_o.jpg"
+  },
+  "pictureAddress": "https://buyersguide.caranddriver.com/media/assets/submodel/8099.jpg"
+  },
+  {
+  "id": "003",
+  "vehicleDescription": "In Japanese, “mirai” means “future,” and the Mirai is the future of motoring: It runs solely on hydrogen and its only emissions are water. Expected later in 2015, the Mirai initially will be sold or leased just in California, where the infrastructure for hydrogen fueling exists. Range is around 300 miles, refueling will take about five minutes, and fuel is included for the first three years of ownership. The powertrain has an eight-year/100,000-mile warranty to allay early-adopter concerns.",
+  "name": "Mirai",
+  "brand": {
+  "id": "003",
+  "name": "Toyota",
+  "brandDescription": "Toyota Motor Corporation",
+  "brandImageURL": "http://pluspng.com/img-png/toyota-logo-vector-png-toyota-logo-format-ai-300.png"
+  },
+  "pictureAddress": "https://buyersguide.caranddriver.com/media/assets/submodel/7963.jpg"
+  },
+  {
+  "id": "004",
+  "vehicleDescription": "You might miss the exhaust note, but otherwise the Focus Electric is very similar to its gasoline-powered sibling. A 143-hp electric motor drives the front wheels. The comfortable, familiar cabin is packed with amenities, but the battery impinges on cargo room. The EPA estimates a range of 115 miles and gives it a combined fuel-economy rating of 107 MPGe; top speed is limited to 84 mph, according to Ford. Remote start with cabin preconditioning is standard.",
+  "name": "Focus Electric",
+  "brand": {
+  "id": "004",
+  "name": "Ford",
+  "brandDescription": "Ford Motor Company",
+  "brandImageURL": "http://www.car-logos.org/wp-content/uploads/2011/09/ford.png"
+  },
+  "pictureAddress": "https://buyersguide.caranddriver.com/media/assets/submodel/8395.jpg"
+  }
+  ]
