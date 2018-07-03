@@ -8,6 +8,7 @@
 
 
 import UIKit
+import RxSwift
 
 protocol BaseViewControllerDelegate: class {
     func willDeallocate(viewController: BaseViewController<BaseViewModel>?)
@@ -16,6 +17,7 @@ protocol BaseViewControllerDelegate: class {
 class BaseViewController<T: BaseViewModel>: UIViewController {
     
     private(set) var viewModel: T?
+    var disposeBag: DisposeBag = DisposeBag()
     weak var baseViewControllerDelegate:BaseViewControllerDelegate?
 
     init(viewModel: T, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

@@ -7,10 +7,11 @@
 //
 
 import Foundation
-
+import RxSwift
 
 class BaseViewModel: NSObject {
 
     // MARK: Properties
     weak var delegate: ViewModelType?
+    var disposeBag: DisposeBag = DisposeBag()
 }

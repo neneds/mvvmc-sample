@@ -19,8 +19,7 @@ class VehicleListViewController: BaseViewController<VehicleListViewModel>, UITab
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
-            #selector(reloadList),
-                                 for: UIControlEvents.valueChanged)
+            #selector(reloadList), for: UIControlEvents.valueChanged)
         refreshControl.tintColor = UIColor.darkGray
         
         return refreshControl
@@ -32,9 +31,22 @@ class VehicleListViewController: BaseViewController<VehicleListViewModel>, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Electric Vehicles"
-        viewModel?.delegate = self
         setupTableView()
         viewModel?.refreshVehicles()
+    }
+
+    private func setupBindings() {
+        viewModel?.vehicles.asObserver().subscribe(onNext: { [weak self] (_) in
+            self?.tableView.reloadData()
+        })
+
+        viewModel?.isLoading.asObserver().subscribe(onNext: { [weak self] (isLoading) in
+            if isLoading{
+                self?.showActivity()
+            } else {
+                self?.hideActivity()
+            }
+        })
     }
     
     private func setupTableView() {
@@ -55,17 +67,19 @@ class VehicleListViewController: BaseViewController<VehicleListViewModel>, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel!.vehicles.count
+        guard let viewModel = viewModel else { return 0 }
+        guard let value = try? viewModel.vehicles.value().count else { return 0 }
+        return value
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VehicleTableViewCell.reuseIdentifier, for: indexPath) as? VehicleTableViewCell else {
             return UITableViewCell()
         }
-        
-        let vehicle = viewModel?.vehicles[indexPath.row]
-        
-        if let imageURL = vehicle?.urlImage {
+        guard let viewModel = viewModel else { return UITableViewCell()}
+        guard let vehicle = try? viewModel.vehicles.value()[indexPath.row] else { return UITableViewCell() }
+
+        if let imageURL = vehicle.urlImage {
             UIImage.loadImageFromURL(imageURL) { (resultImage) in
                 guard let resultImage = resultImage else {
                     return
@@ -73,27 +87,14 @@ class VehicleListViewController: BaseViewController<VehicleListViewModel>, UITab
                 cell.imgVehicle.image = resultImage
             }
         }
-        cell.lblVehicleName.text = vehicle?.name
+        cell.lblVehicleName.text = vehicle.name
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vehicle = viewModel?.vehicles[indexPath.row] else { return }
+        guard let viewModel = viewModel else { return }
+        guard let vehicle = try? viewModel.vehicles.value()[indexPath.row] else { return }
         delegate?.shouldMakeSegue(viewController: self, sender: vehicle)
-    }
-}
-
-extension VehicleListViewController : ViewModelType {
-    func reloadView() {
-        tableView.reloadData()
-    }
-    
-    func showHUD() {
-        self.showActivity()
-    }
-    
-    func hideHUD() {
-        self.hideActivity()
     }
 }

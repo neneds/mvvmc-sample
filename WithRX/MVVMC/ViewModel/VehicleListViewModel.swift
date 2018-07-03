@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 ///Specific methods that this viewModel should have
 protocol ListViewModelType: ViewModelType {
@@ -18,29 +19,20 @@ class VehicleListViewModel: BaseViewModel {
         super.init()
     }
 
-    var vehicles: [Vehicle] = []
+    var vehicles = BehaviorSubject<[Vehicle]>(value: [])
+    var isLoading = BehaviorSubject<Bool>(value: false)
 
     func refreshVehicles() {
         delegate?.showHUD()
-        self.loadVehicles { [weak self] (result) in
-            self?.delegate?.hideHUD()
-            guard let result = result else { return }
-            self?.vehicles = result
-            self?.delegate?.reloadView()
-        }
+        self.loadVehicles()
     }
 
     ///Load data from an API
-    private func loadVehicles(completion: @escaping ([Vehicle]?) -> ()) {
-        guard let json = Bundle.loadJSONDataFromBundle(resourceName: "vehicles") else {
-            completion(nil)
-            return
-        }
-        guard let vehicles: [Vehicle] = try? [Vehicle].decode(data: json) else {
-            completion(nil)
-            return
-        }
-
-        completion(vehicles)
+    private func loadVehicles() {
+        isLoading.onNext(true)
+        guard let json = Bundle.loadJSONDataFromBundle(resourceName: "vehicles") else { return }
+        guard let loadedVehicles: [Vehicle] = try? [Vehicle].decode(data: json) else { return }
+        vehicles.onNext(loadedVehicles)
+        isLoading.onNext(false)
     }
 }
