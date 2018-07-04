@@ -51,12 +51,4 @@ class BrandVehiclesViewModel: BaseViewModel {
         isLoading.accept(false)
         vehicles.accept(loadedVehicles)
     }
-
-    func loadBrandImage(completion: @escaping (_ image: UIImage?) -> ()) {
-        if let imageURL = currentBrand.value.brandImageURL {
-            UIImage.loadImageFromURL(imageURL) { (resultImage) in
-                completion(resultImage)
-            }
-        }
-    }
 }

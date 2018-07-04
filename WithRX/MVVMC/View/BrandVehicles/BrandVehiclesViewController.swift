@@ -10,9 +10,9 @@ import UIKit
 import RxCocoa
 
 class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -23,14 +23,14 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
         refreshControl.sendActions(for: .valueChanged)
         viewModel?.loadBrandVehicles()
     }
-
+    
     private func setupTableView() {
         self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.insertSubview(refreshControl, at: 0)
     }
-
+    
     private func setupBindings() {
         viewModel?.vehicles
             .do(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() })
@@ -38,37 +38,34 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
                 self?.setupVehicleCell(cell: cell, vehicle: vehicle)
             }
             .disposed(by: disposeBag)
-
+        
         refreshControl.rx.controlEvent(.valueChanged).skip(1).subscribe(onNext: { [weak self] _ in
-              self?.viewModel?.loadBrandVehicles()
+            self?.viewModel?.loadBrandVehicles()
         }).disposed(by: disposeBag)
     }
-
+    
     private func setupVehicleCell(cell: VehicleTableViewCell?, vehicle: Vehicle?) {
         guard let vehicle = vehicle else { return }
         guard let cell = cell else { return }
         if let imageURL = vehicle.urlImage {
-            UIImage.loadImageFromURL(imageURL) { (resultImage) in
-                guard let resultImage = resultImage else {
-                    return
-                }
-                cell.imgVehicle.image = resultImage
-            }
+            UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak cell] (image) in
+                guard let image = image else { return }
+                cell?.imgVehicle.image = image
+            }).disposed(by: disposeBag)
         }
         cell.lblVehicleName.text = vehicle.name
         cell.selectionStyle = .none
     }
-
+    
     private func setupTitleView() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
-        viewModel?.loadBrandImage(completion: { (resultImage) in
-            DispatchQueue.main.async {
-                guard let image = resultImage else { return }
-                imageView.image = image
-            }
-        })
+        guard let imageURL = viewModel?.currentBrand.value.brandImageURL else { return }
+        UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak imageView] (image) in
+            guard let image = image else { return }
+            imageView?.image = image
+        }).disposed(by: disposeBag)
     }
 }
 

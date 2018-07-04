@@ -34,12 +34,10 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         lblModelName.text = viewModel?.currentVehicle?.name
         txtModelDescription.text = viewModel?.currentVehicle?.vehicleDescription
         if let imageURL = viewModel?.currentVehicle?.urlImage {
-            UIImage.loadImageFromURL(imageURL) { [weak self] (resultImage) in
-                guard let resultImage = resultImage else {
-                    return
-                }
-                self?.imgVehicle.image = resultImage
-            }
+            UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak self] (image) in
+                guard let image = image else { return }
+                self?.imgVehicle.image = image
+            }).disposed(by: disposeBag)
         }
     }
     

@@ -65,12 +65,10 @@ class BrandViewController: BaseViewController<BrandViewModel>, UICollectionViewD
         cell.lblBrandCompleteName.text = brand?.brandDescription
         cell.delegate = self
         if let imageURL = brand?.brandImageURL {
-            UIImage.loadImageFromURL(imageURL) { (resultImage) in
-                guard let resultImage = resultImage else {
-                    return
-                }
-                cell.imgBrand.image = resultImage
-            }
+            UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak cell] (image) in
+                guard let image = image else { return }
+                cell?.imgBrand.image = image
+            }).disposed(by: disposeBag)
         }
         return cell
     }

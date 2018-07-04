@@ -85,12 +85,11 @@ class VehicleListViewController: BaseViewController<VehicleListViewModel>, UITab
         guard let vehicle = try? viewModel.vehicles.value()[indexPath.row] else { return UITableViewCell() }
 
         if let imageURL = vehicle.urlImage {
-            UIImage.loadImageFromURL(imageURL) { (resultImage) in
-                guard let resultImage = resultImage else {
-                    return
-                }
-                cell.imgVehicle.image = resultImage
-            }
+
+            UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak cell] (image) in
+                guard let image = image else { return }
+                cell?.imgVehicle.image = image
+            }).disposed(by: disposeBag)
         }
         cell.lblVehicleName.text = vehicle.name
         cell.selectionStyle = .none

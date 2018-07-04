@@ -8,23 +8,23 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 extension UIImage {
-
-    class func loadImageFromURL(_ url: URL,completion:@escaping (_ image: UIImage?)->Void){
-        let qualityOfServiceClass = DispatchQoS.QoSClass.background
-        let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
-        backgroundQueue.async(execute: {
-            if let data = try? Data(contentsOf: url),let image = UIImage(data: data){
-                DispatchQueue.main.async(execute: {
-                    completion(image)
-                })
-
-            }else{
-                DispatchQueue.main.async(execute: {
-                    completion(nil)
-                })
-            }
-        })
+    class func loadImageFromURL(url: URL) -> Observable<UIImage?> {
+        return Observable<UIImage?>.create({ (observer) -> Disposable in
+            let qualityOfServiceClass = DispatchQoS.QoSClass.background
+            let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
+            backgroundQueue.async(execute: {
+                if let data = try? Data(contentsOf: url),let image = UIImage(data: data){
+                    observer.onNext(image)
+                    observer.onCompleted()
+                }else{
+                    observer.onNext(nil)
+                    observer.onCompleted()
+                }
+            })
+            return Disposables.create()
+        }).observeOn(MainScheduler.instance)
     }
 }
