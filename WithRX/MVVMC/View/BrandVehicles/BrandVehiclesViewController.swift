@@ -7,33 +7,59 @@
 //
 
 import UIKit
+import RxCocoa
 
-class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, UITableViewDelegate, UITableViewDataSource {
+class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-            #selector(reloadList),
-                                 for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.darkGray
-
-        return refreshControl
-    }()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel?.refreshVehicles(brandId: viewModel?.currentBrand?.id)
         setupTitleView()
+        setupBindings()
+        refreshControl.sendActions(for: .valueChanged)
+        viewModel?.loadBrandVehicles()
+    }
+
+    private func setupBindings() {
+        viewModel?.vehicles
+            .do(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() })
+            .bind(to: tableView.rx.items(cellIdentifier: VehicleTableViewCell.reuseIdentifier, cellType: VehicleTableViewCell.self)) { [weak self] (row, vehicle, cell) in
+                self?.setupVehicleCell(cell: cell, vehicle: vehicle)
+            }
+            .disposed(by: disposeBag)
+
+        refreshControl.rx.controlEvent(.valueChanged)
+            .asDriver().do(onNext: { [weak self] (_) in
+                self?.viewModel?.loadBrandVehicles()
+            })
+
+
+    }
+
+    private func setupVehicleCell(cell: VehicleTableViewCell?, vehicle: Vehicle?) {
+        guard let vehicle = vehicle else { return }
+        guard let cell = cell else { return }
+        if let imageURL = vehicle.urlImage {
+            UIImage.loadImageFromURL(imageURL) { (resultImage) in
+                guard let resultImage = resultImage else {
+                    return
+                }
+                cell.imgVehicle.image = resultImage
+            }
+        }
+        cell.lblVehicleName.text = vehicle.name
+        cell.selectionStyle = .none
     }
 
     private func setupTableView() {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
-        self.tableView.addSubview(self.refreshControl)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.insertSubview(refreshControl, at: 0)
     }
 
     private func setupTitleView() {
@@ -47,52 +73,5 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
             }
         })
     }
-
-    @objc private func reloadList(_ refreshControl: UIRefreshControl) {
-        viewModel?.refreshVehicles(brandId: viewModel?.currentBrand?.id)
-        refreshControl.endRefreshing()
-    }
-
-    // MARK: Table view methods
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel!.vehicles.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: VehicleTableViewCell.reuseIdentifier, for: indexPath) as? VehicleTableViewCell else {
-            return UITableViewCell()
-        }
-
-        let vehicle = viewModel?.vehicles[indexPath.row]
-
-        if let imageURL = vehicle?.urlImage {
-            UIImage.loadImageFromURL(imageURL) { (resultImage) in
-                guard let resultImage = resultImage else {
-                    return
-                }
-                cell.imgVehicle.image = resultImage
-            }
-        }
-        cell.lblVehicleName.text = vehicle?.name
-        cell.selectionStyle = .none
-        return cell
-    }
 }
 
-extension BrandVehiclesViewController: ViewModelType {
-    func reloadView() {
-        tableView.reloadData()
-    }
-
-    func showHUD() {
-        self.showActivity()
-    }
-
-    func hideHUD() {
-        self.hideActivity()
-    }
-}

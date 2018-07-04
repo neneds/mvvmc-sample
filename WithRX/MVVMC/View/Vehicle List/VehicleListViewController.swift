@@ -9,6 +9,11 @@
 import UIKit
 
 
+/*
+   This class was made to show a light way to use rx on a view controller, using rx only for datasource
+*/
+
+
 ///Protocol to inform actions to coordinador
 protocol VehicleListViewControllerDelegate: class {
     func shouldMakeSegue(viewController: VehicleListViewController?, sender:Any?)

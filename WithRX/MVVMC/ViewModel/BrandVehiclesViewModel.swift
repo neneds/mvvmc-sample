@@ -8,17 +8,16 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 import UIKit
 
-///Specific methods that this viewModel should have
-protocol BrandVehiclesViewModelType: ViewModelType {
-
-}
 class BrandVehiclesViewModel: BaseViewModel {
 
     // MARK: Properties
-    private(set) var vehicles: [Vehicle] = []
-    private(set) var currentBrand: Brand?
+    var vehicles = BehaviorRelay<[Vehicle]>(value: [])
+    var currentBrand = BehaviorRelay<Brand>(value: Brand())
+    var isLoading = BehaviorRelay<Bool>(value: false)
 
     override init() {
         super.init()
@@ -26,26 +25,14 @@ class BrandVehiclesViewModel: BaseViewModel {
 
     convenience init(brand: Brand?) {
         self.init()
-        self.currentBrand = brand
-    }
-
-    func refreshVehicles(brandId: String?) {
-        delegate?.showHUD()
-        self.loadBrandVehicles(brandId: brandId) { [weak self] (result) in
-            self?.delegate?.hideHUD()
-            guard let result = result else { return }
-            self?.vehicles = result
-            self?.delegate?.reloadView()
-        }
+        guard let unwrappedBrand = brand else { return }
+        self.currentBrand.accept(unwrappedBrand)
     }
 
     ///Load data from an API
-    private func loadBrandVehicles(brandId: String?, completion: @escaping ([Vehicle]?) -> ()) {
-        guard let brandId = brandId else {
-            completion(nil)
-            return
-        }
-        
+    func loadBrandVehicles() {
+        guard let brandId = currentBrand.value.id else { return }
+        isLoading.accept(true)
         var fileName = ""
         switch brandId {
         case "004":
@@ -59,20 +46,14 @@ class BrandVehiclesViewModel: BaseViewModel {
         default:
             break
         }
-        guard let json = Bundle.loadJSONDataFromBundle(resourceName: fileName) else {
-            completion(nil)
-            return
-        }
-        guard let vehicles: [Vehicle] = try? [Vehicle].decode(data: json) else {
-            completion(nil)
-            return
-        }
-
-        completion(vehicles)
+        guard let json = Bundle.loadJSONDataFromBundle(resourceName: fileName) else { return }
+        guard let loadedVehicles: [Vehicle] = try? [Vehicle].decode(data: json) else { return }
+        isLoading.accept(false)
+        vehicles.accept(loadedVehicles)
     }
 
     func loadBrandImage(completion: @escaping (_ image: UIImage?) -> ()) {
-        if let imageURL = currentBrand?.brandImageURL {
+        if let imageURL = currentBrand.value.brandImageURL {
             UIImage.loadImageFromURL(imageURL) { (resultImage) in
                 completion(resultImage)
             }
