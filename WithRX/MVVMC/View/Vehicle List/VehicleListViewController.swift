@@ -43,7 +43,7 @@ class VehicleListViewController: BaseViewController<VehicleListViewModel>, UITab
     private func setupBindings() {
         viewModel?.vehicles.asObserver().subscribe(onNext: { [weak self] (_) in
             self?.tableView.reloadData()
-        })
+        }).disposed(by: disposeBag)
 
         viewModel?.isLoading.asObserver().subscribe(onNext: { [weak self] (isLoading) in
             if isLoading{
@@ -51,7 +51,7 @@ class VehicleListViewController: BaseViewController<VehicleListViewModel>, UITab
             } else {
                 self?.hideActivity()
             }
-        })
+        }).disposed(by: disposeBag)
     }
     
     private func setupTableView() {

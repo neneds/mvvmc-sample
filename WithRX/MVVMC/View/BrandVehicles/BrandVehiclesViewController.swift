@@ -24,6 +24,13 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
         viewModel?.loadBrandVehicles()
     }
 
+    private func setupTableView() {
+        self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.insertSubview(refreshControl, at: 0)
+    }
+
     private func setupBindings() {
         viewModel?.vehicles
             .do(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() })
@@ -32,12 +39,9 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
             }
             .disposed(by: disposeBag)
 
-        refreshControl.rx.controlEvent(.valueChanged)
-            .asDriver().do(onNext: { [weak self] (_) in
-                self?.viewModel?.loadBrandVehicles()
-            })
-
-
+        refreshControl.rx.controlEvent(.valueChanged).skip(1).subscribe(onNext: { [weak self] _ in
+              self?.viewModel?.loadBrandVehicles()
+        }).disposed(by: disposeBag)
     }
 
     private func setupVehicleCell(cell: VehicleTableViewCell?, vehicle: Vehicle?) {
@@ -53,13 +57,6 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
         }
         cell.lblVehicleName.text = vehicle.name
         cell.selectionStyle = .none
-    }
-
-    private func setupTableView() {
-        self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
-        self.tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil), forCellReuseIdentifier: VehicleTableViewCell.reuseIdentifier)
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.insertSubview(refreshControl, at: 0)
     }
 
     private func setupTitleView() {
