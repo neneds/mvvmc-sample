@@ -34,17 +34,18 @@ class DetailViewController: BaseViewController<DetailViewModel> {
             self?.lblBrandName.text = vehicle?.brand?.name
             self?.lblModelName.text = vehicle?.name
             self?.txtModelDescription.text = vehicle?.vehicleDescription
-
-            if let imageURL = vehicle?.urlImage {
-                UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak self] (image) in
-                    guard let image = image else { return }
-                    self?.imgVehicle.image = image
-                })
-            }
-        }).disposed(by: self.disposeBag)
+            self?.loadVehicleImage(imageURL: vehicle?.urlImage)
+        }).disposed(by: disposeBag)
     }
-    
-    
+
+    func loadVehicleImage(imageURL: URL?) {
+        guard let imageURL = imageURL else { return }
+        UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak self] (image) in
+            guard let image = image else { return }
+            self?.imgVehicle.image = image
+        }).disposed(by: disposeBag)
+    }
+
     @IBAction func actionMoreVehicles(_ sender: Any) {
         guard let vehicle = viewModel?.currentVehicle.value else { return }
         delegate?.shouldPresentBrandVehicles(viewController: self, sender: vehicle.brand)
