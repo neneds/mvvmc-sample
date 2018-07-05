@@ -47,6 +47,6 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     
     @IBAction func actionMoreVehicles(_ sender: Any) {
         guard let vehicle = viewModel?.currentVehicle.value else { return }
-        delegate?.shouldPresentBrandVehicles(viewController: self, sender: vehicle)
+        delegate?.shouldPresentBrandVehicles(viewController: self, sender: vehicle.brand)
     }
 }
