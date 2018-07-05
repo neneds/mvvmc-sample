@@ -26,23 +26,27 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindData()
+        setupBindings()
     }
 
-    func bindData() {
-        lblBrandName.text = viewModel?.currentVehicle?.brand?.name
-        lblModelName.text = viewModel?.currentVehicle?.name
-        txtModelDescription.text = viewModel?.currentVehicle?.vehicleDescription
-        if let imageURL = viewModel?.currentVehicle?.urlImage {
-            UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak self] (image) in
-                guard let image = image else { return }
-                self?.imgVehicle.image = image
-            }).disposed(by: disposeBag)
-        }
+    func setupBindings() {
+        viewModel?.currentVehicle.asDriver().drive(onNext: { [weak self] (vehicle) in
+            self?.lblBrandName.text = vehicle?.brand?.name
+            self?.lblModelName.text = vehicle?.name
+            self?.txtModelDescription.text = vehicle?.vehicleDescription
+
+            if let imageURL = vehicle?.urlImage {
+                UIImage.loadImageFromURL(url: imageURL).asObservable().subscribe(onNext: { [weak self] (image) in
+                    guard let image = image else { return }
+                    self?.imgVehicle.image = image
+                })
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     
     @IBAction func actionMoreVehicles(_ sender: Any) {
-        delegate?.shouldPresentBrandVehicles(viewController: self, sender: viewModel?.currentVehicle?.brand)
+        guard let vehicle = viewModel?.currentVehicle.value else { return }
+        delegate?.shouldPresentBrandVehicles(viewController: self, sender: vehicle)
     }
 }

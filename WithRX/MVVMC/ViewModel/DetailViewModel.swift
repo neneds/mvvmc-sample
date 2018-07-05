@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import RxCocoa
 
 class DetailViewModel: BaseViewModel {
-    var currentVehicle: Vehicle?
+
+    var currentVehicle = BehaviorRelay<Vehicle?>(value: nil)
+
     convenience init(vehicle: Vehicle?) {
         self.init()
-        self.currentVehicle = vehicle
+        self.currentVehicle.accept(vehicle)
     }
 }

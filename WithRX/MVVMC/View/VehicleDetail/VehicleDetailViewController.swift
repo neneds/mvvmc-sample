@@ -28,7 +28,7 @@ class VehicleDetailViewController: BaseViewController<VehicleDetailViewModel> {
     }
 
     @IBAction func actionLike(_ sender: Any) {
-        viewModel?.didClickLike()
+
     }
     
 }

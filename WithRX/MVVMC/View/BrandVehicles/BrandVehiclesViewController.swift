@@ -32,13 +32,15 @@ class BrandVehiclesViewController: BaseViewController<BrandVehiclesViewModel>, U
     }
     
     private func setupBindings() {
+        // Vehicles  binding
         viewModel?.vehicles
             .do(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() })
             .bind(to: tableView.rx.items(cellIdentifier: VehicleTableViewCell.reuseIdentifier, cellType: VehicleTableViewCell.self)) { [weak self] (row, vehicle, cell) in
                 self?.setupVehicleCell(cell: cell, vehicle: vehicle)
             }
             .disposed(by: disposeBag)
-        
+
+        // Refresh control binding
         refreshControl.rx.controlEvent(.valueChanged).skip(1).subscribe(onNext: { [weak self] _ in
             self?.viewModel?.loadBrandVehicles()
         }).disposed(by: disposeBag)
